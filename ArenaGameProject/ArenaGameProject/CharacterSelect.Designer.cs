@@ -95,27 +95,28 @@
             this.Exit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Exit.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Exit.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.Exit.Location = new System.Drawing.Point(1178, 658);
+            this.Exit.Location = new System.Drawing.Point(1178, 697);
             this.Exit.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(150, 55);
             this.Exit.TabIndex = 5;
             this.Exit.Text = "Main menu";
             this.Exit.UseVisualStyleBackColor = false;
-            this.Exit.Click += new System.EventHandler(this.button1_Click);
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // CharacterSelect
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CharacterSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
