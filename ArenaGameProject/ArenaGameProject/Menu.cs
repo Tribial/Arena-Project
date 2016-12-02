@@ -24,7 +24,23 @@ namespace ArenaGameProject
 
         private void FirtGame_Click(object sender, EventArgs e)
         {
-            CharacterSelect ch = new CharacterSelect();
+            CharacterSelect ch = new CharacterSelect(1);
+            this.Hide();
+            ch.ShowDialog();
+            this.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CharacterSelect ch = new CharacterSelect(2);
+            this.Hide();
+            ch.ShowDialog();
+            this.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CharacterSelect ch = new CharacterSelect(4);
             this.Hide();
             ch.ShowDialog();
             this.Show();
