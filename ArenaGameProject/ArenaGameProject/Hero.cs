@@ -9,8 +9,9 @@ namespace ArenaGameProject
     public class Hero
     {
         protected string name; //Imię bohatera
-        protected int health; //Zywotność bohatera
+        public string Name { get { return name; } }//do zwracania imienia bohatera.
 
+        protected int health; //Zywotność bohatera
         public int Health { get { return health; } } //pobranie żywotności
 
         protected int power; //jego power(mana,siła,zręczność) w zależności od klasy
@@ -39,13 +40,12 @@ namespace ArenaGameProject
             {
                 if (this is Warrior)
                 {
-                    if (((Warrior)this)._moreArmor)
+                    if (((Warrior)this)._moreArmor)//jesli jest to wojownik i ma zwiekszony armor
                     {
-                        Console.WriteLine("The Warrior takes half of the damage.");
-                        health -= (int)(0.5 * change);
+                        health -= (int)(0.5 * change);//to dostaje jedynie połowę obrażen
                     }
                     else
-                        health -= change;
+                        health -= change;// a jesli nie ma zwiekszonego armowa, to normalnie
                 }
                 else
                     health -= change;//odejmuje od żyć podana jako parametr wartosc
@@ -54,28 +54,5 @@ namespace ArenaGameProject
                     health = 0;
             }
         }
-
-        public void showHero()//pokazuje informacje o danym bohaterze
-        {
-            string Ally; // string sluzaczy do pokazania czy przyjaciel czy nie
-
-            if (isAlly == true)//isAlly true - to przyjaciel Ally = "Ally"
-                Ally = "Ally";
-
-            else//isAlly false - to wrog Ally = Enemy
-                Ally = "Enemy";
-
-            //Wypisuje informacje o bohaterze:
-            Console.WriteLine("------------------------------");
-            Console.WriteLine(Ally + " Name: " + name);
-            Console.WriteLine("Health: " + health);
-            Console.WriteLine("Power: " + power);
-            Console.WriteLine("Tactic points: " + tacticPoints);
-            if (this is Warrior)
-                Console.WriteLine("War Shout Buff: " + ((Warrior)this)._moreArmor);
-            Console.WriteLine("------------------------------");
-        }
-
-        public string Name { get { return name; } }//do zwracania imienia bohatera.
     }
 }
