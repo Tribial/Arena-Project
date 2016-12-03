@@ -42,12 +42,11 @@
             this.archer_box2 = new System.Windows.Forms.PictureBox();
             this.priest_box1 = new System.Windows.Forms.PictureBox();
             this.priest_box2 = new System.Windows.Forms.PictureBox();
-            this.isAlly = new System.Windows.Forms.CheckBox();
+            this.AI = new System.Windows.Forms.CheckBox();
             this.WhichTeam = new System.Windows.Forms.Label();
             this.player = new System.Windows.Forms.Label();
             this.ch_name = new System.Windows.Forms.TextBox();
             this.player_name = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mage_box1)).BeginInit();
@@ -238,26 +237,26 @@
             this.priest_box2.TabStop = false;
             this.priest_box2.Visible = false;
             // 
-            // isAlly
+            // AI
             // 
-            this.isAlly.AutoSize = true;
-            this.isAlly.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.isAlly.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.isAlly.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.isAlly.Checked = true;
-            this.isAlly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.isAlly.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.isAlly.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.isAlly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.isAlly.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.isAlly.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.isAlly.Image = ((System.Drawing.Image)(resources.GetObject("isAlly.Image")));
-            this.isAlly.Location = new System.Drawing.Point(38, 694);
-            this.isAlly.Name = "isAlly";
-            this.isAlly.Size = new System.Drawing.Size(78, 61);
-            this.isAlly.TabIndex = 14;
-            this.isAlly.Text = "Player";
-            this.isAlly.UseVisualStyleBackColor = false;
+            this.AI.AutoSize = true;
+            this.AI.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AI.CheckAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.AI.Checked = true;
+            this.AI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AI.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.AI.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.AI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.AI.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AI.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AI.Image = ((System.Drawing.Image)(resources.GetObject("AI.Image")));
+            this.AI.Location = new System.Drawing.Point(38, 694);
+            this.AI.Name = "AI";
+            this.AI.Size = new System.Drawing.Size(78, 61);
+            this.AI.TabIndex = 14;
+            this.AI.Text = "Player";
+            this.AI.UseVisualStyleBackColor = false;
             // 
             // WhichTeam
             // 
@@ -307,27 +306,17 @@
             this.player_name.TabIndex = 18;
             this.player_name.Text = "Characker Name:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(246, 626);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 31);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "label1";
-            // 
             // CharacterSelect
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.player_name);
             this.Controls.Add(this.ch_name);
             this.Controls.Add(this.player);
             this.Controls.Add(this.WhichTeam);
-            this.Controls.Add(this.isAlly);
+            this.Controls.Add(this.AI);
             this.Controls.Add(this.priest_box2);
             this.Controls.Add(this.priest_box1);
             this.Controls.Add(this.archer_box2);
@@ -377,11 +366,10 @@
         private System.Windows.Forms.PictureBox archer_box2;
         private System.Windows.Forms.PictureBox priest_box1;
         private System.Windows.Forms.PictureBox priest_box2;
-        private System.Windows.Forms.CheckBox isAlly;
+        private System.Windows.Forms.CheckBox AI;
         private System.Windows.Forms.Label WhichTeam;
         private System.Windows.Forms.Label player;
         private System.Windows.Forms.TextBox ch_name;
         private System.Windows.Forms.Label player_name;
-        private System.Windows.Forms.Label label1;
     }
 }

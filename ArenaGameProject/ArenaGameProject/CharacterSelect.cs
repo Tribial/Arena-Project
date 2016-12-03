@@ -12,12 +12,18 @@ namespace ArenaGameProject
 {
     public partial class CharacterSelect : Form
     {
+        private List<Hero> AllyTeam;
+        private List<Hero> EnemyTeam;
+
+        private static bool whichTeam;
         private static int teamSize;
         private static int currentTeamSize;
         private static bool[] isTaken;
 
         public CharacterSelect(int size)
         {
+            AllyTeam = new List<Hero>();
+            EnemyTeam = new List<Hero>();
             teamSize = size;
             currentTeamSize = 0;
             isTaken = new bool[4];
@@ -90,9 +96,15 @@ namespace ArenaGameProject
         {
             if (ch_name.Text != "" && ch_name.Text != "Name")
             {
+                this.UseWaitCursor = true;
+                if (whichTeam)
+                    AllyTeam.Add(new Warrior(ch_name.Text, AI.Checked, true));
+                else
+                    EnemyTeam.Add(new Warrior(ch_name.Text, AI.Checked, false));
                 Warrior.Enabled = false;
                 currentTeamSize++;
                 checkState();
+                this.UseWaitCursor = false;
             }
             else
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
@@ -102,9 +114,15 @@ namespace ArenaGameProject
         {
             if (ch_name.Text != "" && ch_name.Text != "Name")
             {
+                this.UseWaitCursor = true;
+                if (whichTeam)
+                    AllyTeam.Add(new Mage(ch_name.Text, AI.Checked, true));
+                else
+                    EnemyTeam.Add(new Mage(ch_name.Text, AI.Checked, false));
                 Mage.Enabled = false;
                 currentTeamSize++;
                 checkState();
+                this.UseWaitCursor = false;
             }
             else
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
@@ -114,9 +132,15 @@ namespace ArenaGameProject
         {
             if (ch_name.Text != "" && ch_name.Text != "Name")
             {
+                this.UseWaitCursor = true;
+                if (whichTeam)
+                    AllyTeam.Add(new Archer(ch_name.Text, AI.Checked, true));
+                else
+                    EnemyTeam.Add(new Archer(ch_name.Text, AI.Checked, false));
                 Archer.Enabled = false;
                 currentTeamSize++;
                 checkState();
+                this.UseWaitCursor = false;
             }
             else
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
@@ -126,9 +150,15 @@ namespace ArenaGameProject
         {
             if (ch_name.Text != "" && ch_name.Text != "Name")
             {
+                this.UseWaitCursor = true;
+                if (whichTeam)
+                    AllyTeam.Add(new Priest(ch_name.Text, AI.Checked, true));
+                else
+                    EnemyTeam.Add(new Priest(ch_name.Text, AI.Checked, false));
                 Priest.Enabled = false;
                 currentTeamSize++;
                 checkState();
+                this.UseWaitCursor = false;
             }
             else
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
@@ -138,12 +168,16 @@ namespace ArenaGameProject
         {
             if (currentTeamSize < teamSize)
             {
+                whichTeam = true;
                 WhichTeam.Text = "You are chosing for team: 'The Brothers of Vethelot'";
             }
             if (currentTeamSize == teamSize)
                 reset();
             if (currentTeamSize >= teamSize)
+            {
+                whichTeam = false;
                 WhichTeam.Text = "You are chosing for team: 'The Conquerors Order'";
+            }
             if (currentTeamSize == 2 * teamSize)
                 Close();
 
