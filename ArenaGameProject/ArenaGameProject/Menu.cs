@@ -45,5 +45,13 @@ namespace ArenaGameProject
             ch.ShowDialog();
             this.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Arena ar = new Arena(new List<Hero>(), new List<Hero>());
+            this.Hide();
+            ar.ShowDialog();
+            this.Show();
+        }
     }
 }

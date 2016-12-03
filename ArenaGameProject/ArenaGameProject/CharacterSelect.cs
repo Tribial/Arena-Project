@@ -179,7 +179,12 @@ namespace ArenaGameProject
                 WhichTeam.Text = "You are chosing for team: 'The Conquerors Order'";
             }
             if (currentTeamSize == 2 * teamSize)
-                Close();
+            {
+                Arena fight = new Arena(AllyTeam, EnemyTeam);
+                this.Hide();
+                fight.ShowDialog();
+                this.Close();
+            }
 
             ch_name.Text = "Name";
         }
