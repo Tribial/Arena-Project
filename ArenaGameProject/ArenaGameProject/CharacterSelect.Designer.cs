@@ -309,12 +309,17 @@
             // 
             // random_name
             // 
+            this.random_name.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.random_name.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.random_name.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.random_name.Image = ((System.Drawing.Image)(resources.GetObject("random_name.Image")));
+            this.random_name.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.random_name.Location = new System.Drawing.Point(474, 707);
             this.random_name.Name = "random_name";
             this.random_name.Size = new System.Drawing.Size(158, 34);
             this.random_name.TabIndex = 19;
             this.random_name.Text = "Random";
-            this.random_name.UseVisualStyleBackColor = true;
+            this.random_name.UseVisualStyleBackColor = false;
             this.random_name.Click += new System.EventHandler(this.random_name_Click);
             // 
             // CharacterSelect
