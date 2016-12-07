@@ -327,7 +327,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.random_name);
             this.Controls.Add(this.player_name);
             this.Controls.Add(this.ch_name);
@@ -353,7 +353,6 @@
             this.Name = "CharacterSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CharacterSelect";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CharacterSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box2)).EndInit();

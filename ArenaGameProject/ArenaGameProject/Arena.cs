@@ -57,6 +57,9 @@ namespace ArenaGameProject
             if (current is Priest)
                 priest_attack((Priest)current);
             label1.Text = DMG.ToString();
+            AllyTeam[0].Health = AllyTeam[0].Health - DMG;
+            label2.Text = AllyTeam[0].Health.ToString();
+            progressBar1.Value = AllyTeam[0].Health;
         }
 
         private void Arena_Load(object sender, EventArgs e)
@@ -64,6 +67,10 @@ namespace ArenaGameProject
             Radio_Skills.Add(radioButton1);
             Radio_Skills.Add(radioButton2);
             Radio_Skills.Add(radioButton3);
+
+            progressBar1.Value = AllyTeam[0].Health;
+            label2.Text = AllyTeam[0].Health.ToString();
+            progressBar7.Value = 77;
 
             current = AllyTeam[0];
             remeber();
@@ -158,7 +165,10 @@ namespace ArenaGameProject
             paste();
             remeber();
             if (radioButton1.Checked)
+            {
                 DMG = hero.lightningBolt();
+                pictureBox7.Visible = true;
+            }
             if (radioButton2.Checked)
                 DMG = hero.fireBall();
             if (radioButton3.Checked)
