@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Arena));
             this.give_up = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -57,12 +58,19 @@
             // 
             // give_up
             // 
+            this.give_up.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.give_up.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.give_up.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.give_up.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.give_up.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.give_up.Image = ((System.Drawing.Image)(resources.GetObject("give_up.Image")));
+            this.give_up.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.give_up.Location = new System.Drawing.Point(500, 698);
             this.give_up.Name = "give_up";
             this.give_up.Size = new System.Drawing.Size(366, 58);
             this.give_up.TabIndex = 0;
             this.give_up.Text = "Give up";
-            this.give_up.UseVisualStyleBackColor = true;
+            this.give_up.UseVisualStyleBackColor = false;
             this.give_up.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
@@ -123,6 +131,12 @@
             // radioButton1
             // 
             this.radioButton1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButton1.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.radioButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButton1.Image = ((System.Drawing.Image)(resources.GetObject("radioButton1.Image")));
+            this.radioButton1.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.radioButton1.Location = new System.Drawing.Point(500, 18);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(366, 85);
@@ -130,11 +144,17 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "S1";
             this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
             this.radioButton2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButton2.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.radioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButton2.Image = ((System.Drawing.Image)(resources.GetObject("radioButton2.Image")));
+            this.radioButton2.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.radioButton2.Location = new System.Drawing.Point(500, 188);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(366, 85);
@@ -142,11 +162,17 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "S2";
             this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.UseVisualStyleBackColor = false;
             // 
             // radioButton3
             // 
             this.radioButton3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.radioButton3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.radioButton3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.radioButton3.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.radioButton3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.radioButton3.Image = ((System.Drawing.Image)(resources.GetObject("radioButton3.Image")));
+            this.radioButton3.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.radioButton3.Location = new System.Drawing.Point(500, 358);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(366, 85);
@@ -154,7 +180,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "S3";
             this.radioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.UseVisualStyleBackColor = false;
             // 
             // pictureBox8
             // 
@@ -194,17 +220,25 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.button4.Location = new System.Drawing.Point(500, 528);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(366, 85);
             this.button4.TabIndex = 16;
             this.button4.Text = "S4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // Arena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox11);

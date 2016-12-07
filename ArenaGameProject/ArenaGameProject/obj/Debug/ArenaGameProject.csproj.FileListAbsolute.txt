@@ -9,3 +9,14 @@ c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\A
 c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.CharacterSelect.resources
 c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Menu.resources
 C:\Users\Fabian Domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Arena.resources
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\bin\Debug\ArenaGameProject.exe.config
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.exe
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.pdb
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\bin\Debug\ArenaGameProject.exe
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\bin\Debug\ArenaGameProject.pdb
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.csprojResolveAssemblyReference.cache
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Arena.resources
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.CharacterSelect.resources
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Menu.resources
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Properties.Resources.resources
+C:\Users\piotr\Documents\Visual Studio 2015\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.csproj.GenerateResource.Cache
