@@ -47,6 +47,7 @@
             this.player = new System.Windows.Forms.Label();
             this.ch_name = new System.Windows.Forms.TextBox();
             this.player_name = new System.Windows.Forms.Label();
+            this.random_name = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warrior_box2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mage_box1)).BeginInit();
@@ -306,12 +307,23 @@
             this.player_name.TabIndex = 18;
             this.player_name.Text = "Characker Name:";
             // 
+            // random_name
+            // 
+            this.random_name.Location = new System.Drawing.Point(474, 707);
+            this.random_name.Name = "random_name";
+            this.random_name.Size = new System.Drawing.Size(158, 34);
+            this.random_name.TabIndex = 19;
+            this.random_name.Text = "Random";
+            this.random_name.UseVisualStyleBackColor = true;
+            this.random_name.Click += new System.EventHandler(this.random_name_Click);
+            // 
             // CharacterSelect
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.Controls.Add(this.random_name);
             this.Controls.Add(this.player_name);
             this.Controls.Add(this.ch_name);
             this.Controls.Add(this.player);
@@ -371,5 +383,6 @@
         private System.Windows.Forms.Label player;
         private System.Windows.Forms.TextBox ch_name;
         private System.Windows.Forms.Label player_name;
+        private System.Windows.Forms.Button random_name;
     }
 }

@@ -200,5 +200,12 @@ namespace ArenaGameProject
             Archer.Enabled = true;
             archer_box2.Visible = false;
         }
+
+        private void random_name_Click(object sender, EventArgs e)
+        {
+            string[] names = { "Solhar", "Traanun", "Vepteurun", "Fleeran", "Perduhr", "Leyrah", "Pauldon", "Carwald", "Soncuth"};
+            Random rnd = new Random();
+            ch_name.Text = names[rnd.Next(0, 9)];
+        }
     }
 }
