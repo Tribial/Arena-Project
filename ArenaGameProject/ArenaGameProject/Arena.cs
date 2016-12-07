@@ -15,9 +15,13 @@ namespace ArenaGameProject
         private List<RadioButton> Radio_Skills;
         private List<Hero> AllyTeam;
         private List<Hero> EnemyTeam;
+        private Hero current;
         private int currentHero;
         private bool whichTeam;
         private int DMG;
+
+        private static int HP;
+        private static int Power;
 
         public Arena(List<Hero> AllyTeam, List<Hero> EnemyTeam)
         {
@@ -39,7 +43,20 @@ namespace ArenaGameProject
 
         private void skill_CheckedChange(object sender, EventArgs e)
         {
-            
+            if (whichTeam)
+                current = AllyTeam[currentHero];
+            else
+                current = EnemyTeam[currentHero];
+
+            if (current is Warrior)
+                warrior_attack((Warrior)current);
+            if (current is Mage)
+                mage_attack((Mage)current);
+            if (current is Archer)
+                archer_attack((Archer)current);
+            if (current is Priest)
+                priest_attack((Priest)current);
+            label1.Text = DMG.ToString();
         }
 
         private void Arena_Load(object sender, EventArgs e)
@@ -47,12 +64,13 @@ namespace ArenaGameProject
             Radio_Skills.Add(radioButton1);
             Radio_Skills.Add(radioButton2);
             Radio_Skills.Add(radioButton3);
-            first_skill();
-            second_skill();
-            third_skill();
-            fourth_skill();
+
+            current = AllyTeam[0];
+            remeber();
+
+            skill_check();
         }
-        private void first_skill()
+        private void skill_check()
         {
             if (AllyTeam[currentHero] is Warrior)
             {
@@ -70,9 +88,7 @@ namespace ArenaGameProject
             {
                 radioButton1.Text = "Piercing Arrow";
             }
-        }
-        private void second_skill()
-        {
+
             if (AllyTeam[currentHero] is Warrior)
             {
                 radioButton2.Text = "Powerful Sword Hit";
@@ -89,9 +105,7 @@ namespace ArenaGameProject
             {
                 radioButton2.Text = "Double Arrow Shot";
             }
-        }
-        private void third_skill()
-        {
+
             if (AllyTeam[currentHero] is Warrior)
             {
                 radioButton3.Text = "None";
@@ -111,9 +125,7 @@ namespace ArenaGameProject
                 radioButton3.Text = "None";
                 radioButton3.Enabled = false;
             }
-        }
-        private void fourth_skill()
-        {
+
             if (AllyTeam[currentHero] is Warrior)
             {
                 button4.Text = "Battle Shout";
@@ -132,6 +144,65 @@ namespace ArenaGameProject
                 button4.Enabled = false;
             }
         }
+        private void warrior_attack(Warrior hero)
+        {
+            paste();
+            remeber();
+            if (radioButton1.Checked)
+                DMG = hero.swordHit();
+            if (radioButton2.Checked)
+                DMG = hero.powerHit();
+        }
+        private void mage_attack(Mage hero)
+        {
+            paste();
+            remeber();
+            if (radioButton1.Checked)
+                DMG = hero.lightningBolt();
+            if (radioButton2.Checked)
+                DMG = hero.fireBall();
+            if (radioButton3.Checked)
+            {
+                DMG = hero.Blizzard();
+                //there will be more
+            }
+        }
+        private void archer_attack(Archer hero)
+        {
+            paste();
+            remeber();
+            if (radioButton1.Checked)
+                DMG = hero.shoot();
+            if (radioButton2.Checked)
+                DMG = hero.doubleShot();
+        }
+        private void priest_attack(Priest hero)
+        {
+            paste();
+            remeber();
+            if (radioButton1.Checked)
+                DMG = hero.holyBolt();
+            if (radioButton2.Checked)
+                DMG = hero.heal();
+        }
 
+        private void remeber()
+        {
+            HP = current.Health;
+            Power = current.Power;
+        }
+        private void paste()
+        {
+            if(whichTeam)
+            {
+                AllyTeam[currentHero].Health = HP;
+                AllyTeam[currentHero].Power = Power;
+            }
+            if (!whichTeam)
+            {
+                EnemyTeam[currentHero].Health = HP;
+                EnemyTeam[currentHero].Power = Power;
+            }
+        }
     }
 }

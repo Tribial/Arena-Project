@@ -44,6 +44,7 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -145,6 +146,7 @@
             this.radioButton1.Text = "S1";
             this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton1.UseVisualStyleBackColor = false;
+            this.radioButton1.Click += new System.EventHandler(this.skill_CheckedChange);
             // 
             // radioButton2
             // 
@@ -163,6 +165,7 @@
             this.radioButton2.Text = "S2";
             this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.Click += new System.EventHandler(this.skill_CheckedChange);
             // 
             // radioButton3
             // 
@@ -181,6 +184,7 @@
             this.radioButton3.Text = "S3";
             this.radioButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton3.UseVisualStyleBackColor = false;
+            this.radioButton3.Click += new System.EventHandler(this.skill_CheckedChange);
             // 
             // pictureBox8
             // 
@@ -233,6 +237,15 @@
             this.button4.Text = "S4";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(301, 100);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "label1";
+            // 
             // Arena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,6 +253,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
@@ -272,6 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -292,5 +307,6 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label1;
     }
 }

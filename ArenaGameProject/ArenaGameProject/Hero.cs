@@ -12,10 +12,10 @@ namespace ArenaGameProject
         public string Name { get { return name; } }//do zwracania imienia bohatera.
 
         protected int health; //Zywotność bohatera
-        public int Health { get { return health; } } //pobranie żywotności
+        public int Health { get { return health; } set { health = value; } } //pobranie żywotności
 
         protected int power; //jego power(mana,siła,zręczność) w zależności od klasy
-        public int Power { get { return power; } } //pobranie power'u
+        public int Power { get { return power; } set { power = value; } } //pobranie power'u
 
         protected int tacticPoints; // punkty taktyki
 
