@@ -9,3 +9,4 @@ c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\A
 c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.CharacterSelect.resources
 c:\users\fabian domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Menu.resources
 C:\Users\Fabian Domurad\documents\visual studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.Arena.resources
+C:\Users\Fabian Domurad\Documents\Visual Studio 2013\Projects\ArenaGameProject\ArenaGameProject\obj\Debug\ArenaGameProject.EndFight.resources

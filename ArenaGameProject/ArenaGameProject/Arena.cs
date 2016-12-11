@@ -160,6 +160,7 @@ namespace ArenaGameProject
         }
         private void warrior_attack(Warrior hero, bool fourthSkill)
         {
+            hero.checkWarShout();
             if (fourthSkill)
                 hero.warShout();
             else if (radioButton1.Checked)
@@ -178,7 +179,32 @@ namespace ArenaGameProject
             else if (radioButton3.Checked)
             {
                 DMG = hero.Blizzard();
-                //there will be more
+                if(whichTeam)
+                {
+                    for(int i = 0; i < EnemyTeam.Count; i++)
+                    {
+                        EnemyTeam[i].healthChange(DMG);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < AllyTeam.Count; i++)
+                    {
+                        AllyTeam[i].healthChange(DMG);
+                    }
+                }
+                uncheck_buttons_and_markers();
+                damage_added_correctly = false;
+                set();
+                check_dead();
+                if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)
+                    Close();
+                else
+                {
+                    next_turn();
+                    skill_check();
+                    set_marker();
+                }
             }
         }
         private void archer_attack(Archer hero)
@@ -237,23 +263,23 @@ namespace ArenaGameProject
                 if(hero is Warrior)
                 {
                     progressBar1.Value = hero.Health;
-                    name1.Text = hero.Name;
+                    name1.Text = hero._Name;
                 }
                 if (hero is Mage)
                 {
                     progressBar2.Value = hero.Health;
-                    name2.Text = hero.Name;
+                    name2.Text = hero._Name;
                     manaBar1.Value = hero.Power;
                 }
                 if (hero is Archer)
                 {
                     progressBar3.Value = hero.Health;
-                    name3.Text = hero.Name;
+                    name3.Text = hero._Name;
                 }
                 if (hero is Priest) 
                 {
                     progressBar4.Value = hero.Health;
-                    name4.Text = hero.Name;
+                    name4.Text = hero._Name;
                     manaBar2.Value = hero.Power;
                 }
             }
@@ -263,23 +289,23 @@ namespace ArenaGameProject
                 if (hero is Warrior)
                 {
                     progressBar5.Value = hero.Health;
-                    name5.Text = hero.Name;
+                    name5.Text = hero._Name;
                 }
                 if (hero is Mage)
                 {
                     progressBar6.Value = hero.Health;
-                    name6.Text = hero.Name;
+                    name6.Text = hero._Name;
                     manaBar3.Value = hero.Power;
                 }
                 if (hero is Archer)
                 {
                     progressBar7.Value = hero.Health;
-                    name7.Text = hero.Name;
+                    name7.Text = hero._Name;
                 }
                 if (hero is Priest)
                 {
                     progressBar8.Value = hero.Health;
-                    name8.Text = hero.Name;
+                    name8.Text = hero._Name;
                     manaBar4.Value = hero.Power;
                 }
             }
@@ -392,6 +418,176 @@ namespace ArenaGameProject
                 current = AllyTeam[currentAlly];
             else
                 current = EnemyTeam[currentEnemy];
+            
+            if (current._isAI)
+                bot_Attack();
+        }
+
+        private void bot_Attack()
+        {
+            if(whichTeam)
+            {
+                if(AllyTeam[currentAlly] is Warrior)
+                {
+                    AI_Attack.Attack((Warrior)current, EnemyTeam);
+                    if(AI_Attack.Buff)
+                    {
+                        Warrior tmp = (Warrior)AllyTeam[currentAlly];
+                        tmp.warShout();
+                        AllyTeam[currentAlly] = tmp;
+                        MessageBox.Show(current._Name + " used War Shout.");
+                    }
+                    else
+                    {
+                        EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                        MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + AI_Attack.DMG + " damage.");
+                    }
+                }
+                if (AllyTeam[currentAlly] is Mage)
+                {
+                    AI_Attack.Attack((Mage)current, EnemyTeam);
+                    if(AI_Attack.Buff)
+                    {
+                        Mage tmp = (Mage)AllyTeam[currentAlly];
+                        tmp.regenerate();
+                        AllyTeam[currentAlly] = tmp;
+                        MessageBox.Show(AllyTeam[currentAlly]._Name + " regenerated mana.");
+                    }
+                    else
+                    {
+                        if(AI_Attack.Enemy != -1)
+                        {
+                            EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + DMG + " damage.");
+                        }
+                        else
+                        {
+                            for(int i =0; i<EnemyTeam.Count;i++)
+                            {
+                                EnemyTeam[i].healthChange(AI_Attack.DMG);
+                                MessageBox.Show(current._Name + " used Blizzard and hit every enemy for "+ AI_Attack.DMG+" damage.");
+                            }
+                        }
+                    }
+                }
+                if (AllyTeam[currentAlly] is Archer)
+                {
+                    AI_Attack.Attack((Archer)current, EnemyTeam);
+                    EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                    MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + AI_Attack.DMG + " damage.");
+                }
+                if (AllyTeam[currentAlly] is Priest)
+                {
+                    AI_Attack.Attack((Priest)current, AllyTeam,EnemyTeam);
+                    if(AI_Attack.Buff)
+                    {
+                        if(AI_Attack.Enemy == -1)
+                        {
+                            AllyTeam[currentAlly].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name + " healed himself for "+(-AI_Attack.DMG));
+                        }
+                        else
+                        {
+                            AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name+" healed "+AllyTeam[AI_Attack.Enemy]._Name+" for "+(-AI_Attack.DMG));
+                              
+                        }
+                    }
+                    else
+                    {
+                        EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                        MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + DMG + " damage.");
+                    }
+                }
+            }
+            else
+            {
+                if(EnemyTeam[currentAlly] is Warrior)
+                {
+                    AI_Attack.Attack((Warrior)current, AllyTeam);
+                    if(AI_Attack.Buff)
+                    {
+                        Warrior tmp = (Warrior)EnemyTeam[currentAlly];
+                        tmp.warShout();
+                        EnemyTeam[currentAlly] = tmp;
+                        MessageBox.Show(current._Name + " used War Shout.");
+                    }
+                    else
+                    {
+                        AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                        MessageBox.Show(current._Name+" hit "+AllyTeam[AI_Attack.Enemy]._Name+" for "+AI_Attack.DMG+" damage.");
+                    }
+
+                }
+                if (EnemyTeam[currentAlly] is Mage)
+                {
+                    AI_Attack.Attack((Mage)current, AllyTeam);
+                    if(AI_Attack.Buff)
+                    {
+                        Mage tmp = (Mage)EnemyTeam[currentAlly];
+                        tmp.regenerate();
+                        EnemyTeam[currentAlly] = tmp;
+                        MessageBox.Show(EnemyTeam[currentAlly]._Name + " regenerated mana.");
+                    }
+                    else
+                    {
+                        if(AI_Attack.Enemy != -1)
+                        {
+                            AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name + " hit " + AllyTeam[AI_Attack.Enemy]._Name + " for " + DMG + " damage.");
+                        }
+                        else
+                        {
+                            for(int i =0; i<AllyTeam.Count;i++)
+                            {
+                                AllyTeam[i].healthChange(AI_Attack.DMG);
+                                MessageBox.Show(current._Name + " used Blizzard and hit every enemy for "+ AI_Attack.DMG+" damage.");
+                            }
+                        }
+                    }
+                }
+                if (EnemyTeam[currentAlly] is Archer)
+                {
+                    AI_Attack.Attack((Archer)current, AllyTeam);
+                    AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                    MessageBox.Show(current._Name + " hit " + AllyTeam[AI_Attack.Enemy]._Name + " for " + AI_Attack.DMG + " damage.");
+                }
+                if (EnemyTeam[currentAlly] is Priest)
+                {
+                    AI_Attack.Attack((Priest)current, EnemyTeam, AllyTeam);
+                    if (AI_Attack.Buff)
+                    {
+                        if (AI_Attack.Enemy == -1)
+                        {
+                            EnemyTeam[currentAlly].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name + " healed himself for " + (-AI_Attack.DMG));
+                        }
+                        else
+                        {
+                            EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                            MessageBox.Show(current._Name + " healed " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + (-AI_Attack.DMG));
+
+                        }
+                    }
+                    else
+                    {
+                        AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                        MessageBox.Show(current._Name + " hit " + AllyTeam[AI_Attack.Enemy]._Name + " for " + DMG + " damage.");
+                    }
+                }
+            }
+            uncheck_buttons_and_markers();
+            damage_added_correctly = false;
+            set();
+            check_dead();
+            if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)
+                Close();
+            else
+            {
+                next_turn();
+                skill_check();
+                set_marker();
+            }
         }
 
         private void check_dead()

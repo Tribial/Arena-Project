@@ -9,7 +9,7 @@ namespace ArenaGameProject
     public class Hero
     {
         protected string name; //Imię bohatera
-        public string Name { get { return name; } }//do zwracania imienia bohatera.
+        public string _Name { get { return name; } }//do zwracania imienia bohatera.
 
         protected int health; //Zywotność bohatera
         public int Health { get { return health; } set { health = value; } } //pobranie żywotności

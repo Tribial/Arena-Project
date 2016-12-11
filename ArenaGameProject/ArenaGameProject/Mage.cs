@@ -18,7 +18,7 @@ namespace ArenaGameProject
             maxPower = power;
             health = 100;
             tacticPoints = 2;
-            this.isAI = isAI;
+            this.isAI = !isAI;
             this.isAlly = isAlly;
         }
 

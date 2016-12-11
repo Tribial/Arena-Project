@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI_Attack.cs" />
     <Compile Include="Archer.cs" />
     <Compile Include="Arena.cs">
       <SubType>Form</SubType>
