@@ -30,28 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Arena));
             this.give_up = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Ally_Warrior = new System.Windows.Forms.PictureBox();
+            this.Ally_Mage = new System.Windows.Forms.PictureBox();
+            this.Ally_Archer = new System.Windows.Forms.PictureBox();
+            this.Ally_Priest = new System.Windows.Forms.PictureBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.Enemy_Warrior = new System.Windows.Forms.PictureBox();
+            this.Enemy_Mage = new System.Windows.Forms.PictureBox();
+            this.Enemy_Priest = new System.Windows.Forms.PictureBox();
+            this.Enemy_Archer = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.name1 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.AllyTurn1 = new System.Windows.Forms.PictureBox();
+            this.EnemyTurn1 = new System.Windows.Forms.PictureBox();
+            this.EnemyTurn2 = new System.Windows.Forms.PictureBox();
+            this.EnemyTurn3 = new System.Windows.Forms.PictureBox();
+            this.EnemyTurn4 = new System.Windows.Forms.PictureBox();
+            this.AllyTurn2 = new System.Windows.Forms.PictureBox();
+            this.AllyTurn4 = new System.Windows.Forms.PictureBox();
+            this.AllyTurn3 = new System.Windows.Forms.PictureBox();
             this.name2 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.name3 = new System.Windows.Forms.Label();
@@ -70,22 +70,22 @@
             this.manaBar3 = new System.Windows.Forms.ProgressBar();
             this.name6 = new System.Windows.Forms.Label();
             this.progressBar6 = new System.Windows.Forms.ProgressBar();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Warrior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Mage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Archer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Priest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Warrior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Mage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Priest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Archer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn3)).BeginInit();
             this.SuspendLayout();
             // 
             // give_up
@@ -105,47 +105,51 @@
             this.give_up.UseVisualStyleBackColor = false;
             this.give_up.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBox1
+            // Ally_Warrior
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.Ally_Warrior.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Ally_Warrior.Image = ((System.Drawing.Image)(resources.GetObject("Ally_Warrior.Image")));
+            this.Ally_Warrior.Location = new System.Drawing.Point(12, 12);
+            this.Ally_Warrior.Name = "Ally_Warrior";
+            this.Ally_Warrior.Size = new System.Drawing.Size(133, 168);
+            this.Ally_Warrior.TabIndex = 1;
+            this.Ally_Warrior.TabStop = false;
+            this.Ally_Warrior.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox3
+            // Ally_Mage
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 204);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.Ally_Mage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Ally_Mage.Image = ((System.Drawing.Image)(resources.GetObject("Ally_Mage.Image")));
+            this.Ally_Mage.Location = new System.Drawing.Point(12, 204);
+            this.Ally_Mage.Name = "Ally_Mage";
+            this.Ally_Mage.Size = new System.Drawing.Size(133, 168);
+            this.Ally_Mage.TabIndex = 3;
+            this.Ally_Mage.TabStop = false;
+            this.Ally_Mage.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox4
+            // Ally_Archer
             // 
-            this.pictureBox4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(12, 396);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
+            this.Ally_Archer.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Ally_Archer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Ally_Archer.BackgroundImage")));
+            this.Ally_Archer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Ally_Archer.Image = ((System.Drawing.Image)(resources.GetObject("Ally_Archer.Image")));
+            this.Ally_Archer.Location = new System.Drawing.Point(12, 396);
+            this.Ally_Archer.Name = "Ally_Archer";
+            this.Ally_Archer.Size = new System.Drawing.Size(133, 168);
+            this.Ally_Archer.TabIndex = 4;
+            this.Ally_Archer.TabStop = false;
+            this.Ally_Archer.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox5
+            // Ally_Priest
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, 588);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
+            this.Ally_Priest.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Ally_Priest.Image = ((System.Drawing.Image)(resources.GetObject("Ally_Priest.Image")));
+            this.Ally_Priest.Location = new System.Drawing.Point(12, 588);
+            this.Ally_Priest.Name = "Ally_Priest";
+            this.Ally_Priest.Size = new System.Drawing.Size(133, 168);
+            this.Ally_Priest.TabIndex = 5;
+            this.Ally_Priest.TabStop = false;
+            this.Ally_Priest.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // radioButton1
             // 
@@ -204,47 +208,51 @@
             this.radioButton3.UseVisualStyleBackColor = false;
             this.radioButton3.Click += new System.EventHandler(this.skill_CheckedChange);
             // 
-            // pictureBox8
+            // Enemy_Warrior
             // 
-            this.pictureBox8.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(1221, 12);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox8.TabIndex = 12;
-            this.pictureBox8.TabStop = false;
+            this.Enemy_Warrior.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Enemy_Warrior.Image = ((System.Drawing.Image)(resources.GetObject("Enemy_Warrior.Image")));
+            this.Enemy_Warrior.Location = new System.Drawing.Point(1221, 12);
+            this.Enemy_Warrior.Name = "Enemy_Warrior";
+            this.Enemy_Warrior.Size = new System.Drawing.Size(133, 168);
+            this.Enemy_Warrior.TabIndex = 12;
+            this.Enemy_Warrior.TabStop = false;
+            this.Enemy_Warrior.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox9
+            // Enemy_Mage
             // 
-            this.pictureBox9.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(1221, 204);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox9.TabIndex = 13;
-            this.pictureBox9.TabStop = false;
+            this.Enemy_Mage.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Enemy_Mage.Image = ((System.Drawing.Image)(resources.GetObject("Enemy_Mage.Image")));
+            this.Enemy_Mage.Location = new System.Drawing.Point(1221, 204);
+            this.Enemy_Mage.Name = "Enemy_Mage";
+            this.Enemy_Mage.Size = new System.Drawing.Size(133, 168);
+            this.Enemy_Mage.TabIndex = 13;
+            this.Enemy_Mage.TabStop = false;
+            this.Enemy_Mage.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox10
+            // Enemy_Priest
             // 
-            this.pictureBox10.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(1221, 588);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox10.TabIndex = 14;
-            this.pictureBox10.TabStop = false;
+            this.Enemy_Priest.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Enemy_Priest.Image = ((System.Drawing.Image)(resources.GetObject("Enemy_Priest.Image")));
+            this.Enemy_Priest.Location = new System.Drawing.Point(1221, 588);
+            this.Enemy_Priest.Name = "Enemy_Priest";
+            this.Enemy_Priest.Size = new System.Drawing.Size(133, 168);
+            this.Enemy_Priest.TabIndex = 14;
+            this.Enemy_Priest.TabStop = false;
+            this.Enemy_Priest.Click += new System.EventHandler(this.PictureBox_Click);
             // 
-            // pictureBox11
+            // Enemy_Archer
             // 
-            this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.Location = new System.Drawing.Point(1221, 396);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(133, 168);
-            this.pictureBox11.TabIndex = 15;
-            this.pictureBox11.TabStop = false;
+            this.Enemy_Archer.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Enemy_Archer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Enemy_Archer.BackgroundImage")));
+            this.Enemy_Archer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Enemy_Archer.Image = ((System.Drawing.Image)(resources.GetObject("Enemy_Archer.Image")));
+            this.Enemy_Archer.Location = new System.Drawing.Point(1221, 396);
+            this.Enemy_Archer.Name = "Enemy_Archer";
+            this.Enemy_Archer.Size = new System.Drawing.Size(133, 168);
+            this.Enemy_Archer.TabIndex = 15;
+            this.Enemy_Archer.TabStop = false;
+            this.Enemy_Archer.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // button4
             // 
@@ -283,85 +291,85 @@
             this.name1.TabIndex = 19;
             this.name1.Text = "None";
             // 
-            // pictureBox7
+            // AllyTurn1
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox7.Location = new System.Drawing.Point(151, 12);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox7.TabIndex = 20;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Visible = false;
+            this.AllyTurn1.BackColor = System.Drawing.Color.Blue;
+            this.AllyTurn1.Location = new System.Drawing.Point(151, 12);
+            this.AllyTurn1.Name = "AllyTurn1";
+            this.AllyTurn1.Size = new System.Drawing.Size(10, 168);
+            this.AllyTurn1.TabIndex = 20;
+            this.AllyTurn1.TabStop = false;
+            this.AllyTurn1.Visible = false;
             // 
-            // pictureBox12
+            // EnemyTurn1
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.Red;
-            this.pictureBox12.Location = new System.Drawing.Point(1205, 12);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox12.TabIndex = 21;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Visible = false;
+            this.EnemyTurn1.BackColor = System.Drawing.Color.Red;
+            this.EnemyTurn1.Location = new System.Drawing.Point(1205, 12);
+            this.EnemyTurn1.Name = "EnemyTurn1";
+            this.EnemyTurn1.Size = new System.Drawing.Size(10, 168);
+            this.EnemyTurn1.TabIndex = 21;
+            this.EnemyTurn1.TabStop = false;
+            this.EnemyTurn1.Visible = false;
             // 
-            // pictureBox13
+            // EnemyTurn2
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.Red;
-            this.pictureBox13.Location = new System.Drawing.Point(1205, 204);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox13.TabIndex = 22;
-            this.pictureBox13.TabStop = false;
-            this.pictureBox13.Visible = false;
+            this.EnemyTurn2.BackColor = System.Drawing.Color.Red;
+            this.EnemyTurn2.Location = new System.Drawing.Point(1205, 204);
+            this.EnemyTurn2.Name = "EnemyTurn2";
+            this.EnemyTurn2.Size = new System.Drawing.Size(10, 168);
+            this.EnemyTurn2.TabIndex = 22;
+            this.EnemyTurn2.TabStop = false;
+            this.EnemyTurn2.Visible = false;
             // 
-            // pictureBox14
+            // EnemyTurn3
             // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Red;
-            this.pictureBox14.Location = new System.Drawing.Point(1205, 396);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox14.TabIndex = 23;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Visible = false;
+            this.EnemyTurn3.BackColor = System.Drawing.Color.Red;
+            this.EnemyTurn3.Location = new System.Drawing.Point(1205, 396);
+            this.EnemyTurn3.Name = "EnemyTurn3";
+            this.EnemyTurn3.Size = new System.Drawing.Size(10, 168);
+            this.EnemyTurn3.TabIndex = 23;
+            this.EnemyTurn3.TabStop = false;
+            this.EnemyTurn3.Visible = false;
             // 
-            // pictureBox15
+            // EnemyTurn4
             // 
-            this.pictureBox15.BackColor = System.Drawing.Color.Red;
-            this.pictureBox15.Location = new System.Drawing.Point(1205, 588);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox15.TabIndex = 24;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.Visible = false;
+            this.EnemyTurn4.BackColor = System.Drawing.Color.Red;
+            this.EnemyTurn4.Location = new System.Drawing.Point(1205, 588);
+            this.EnemyTurn4.Name = "EnemyTurn4";
+            this.EnemyTurn4.Size = new System.Drawing.Size(10, 168);
+            this.EnemyTurn4.TabIndex = 24;
+            this.EnemyTurn4.TabStop = false;
+            this.EnemyTurn4.Visible = false;
             // 
-            // pictureBox16
+            // AllyTurn2
             // 
-            this.pictureBox16.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox16.Location = new System.Drawing.Point(151, 204);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox16.TabIndex = 25;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.Visible = false;
+            this.AllyTurn2.BackColor = System.Drawing.Color.Blue;
+            this.AllyTurn2.Location = new System.Drawing.Point(151, 204);
+            this.AllyTurn2.Name = "AllyTurn2";
+            this.AllyTurn2.Size = new System.Drawing.Size(10, 168);
+            this.AllyTurn2.TabIndex = 25;
+            this.AllyTurn2.TabStop = false;
+            this.AllyTurn2.Visible = false;
             // 
-            // pictureBox17
+            // AllyTurn4
             // 
-            this.pictureBox17.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox17.Location = new System.Drawing.Point(151, 588);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox17.TabIndex = 26;
-            this.pictureBox17.TabStop = false;
-            this.pictureBox17.Visible = false;
+            this.AllyTurn4.BackColor = System.Drawing.Color.Blue;
+            this.AllyTurn4.Location = new System.Drawing.Point(151, 588);
+            this.AllyTurn4.Name = "AllyTurn4";
+            this.AllyTurn4.Size = new System.Drawing.Size(10, 168);
+            this.AllyTurn4.TabIndex = 26;
+            this.AllyTurn4.TabStop = false;
+            this.AllyTurn4.Visible = false;
             // 
-            // pictureBox18
+            // AllyTurn3
             // 
-            this.pictureBox18.BackColor = System.Drawing.Color.Blue;
-            this.pictureBox18.Location = new System.Drawing.Point(151, 396);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(10, 168);
-            this.pictureBox18.TabIndex = 27;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.Visible = false;
+            this.AllyTurn3.BackColor = System.Drawing.Color.Blue;
+            this.AllyTurn3.Location = new System.Drawing.Point(151, 396);
+            this.AllyTurn3.Name = "AllyTurn3";
+            this.AllyTurn3.Size = new System.Drawing.Size(10, 168);
+            this.AllyTurn3.TabIndex = 27;
+            this.AllyTurn3.TabStop = false;
+            this.AllyTurn3.Visible = false;
             // 
             // name2
             // 
@@ -604,28 +612,28 @@
             this.Controls.Add(this.progressBar3);
             this.Controls.Add(this.name2);
             this.Controls.Add(this.progressBar2);
-            this.Controls.Add(this.pictureBox18);
-            this.Controls.Add(this.pictureBox17);
-            this.Controls.Add(this.pictureBox16);
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.AllyTurn3);
+            this.Controls.Add(this.AllyTurn4);
+            this.Controls.Add(this.AllyTurn2);
+            this.Controls.Add(this.EnemyTurn4);
+            this.Controls.Add(this.EnemyTurn3);
+            this.Controls.Add(this.EnemyTurn2);
+            this.Controls.Add(this.EnemyTurn1);
+            this.Controls.Add(this.AllyTurn1);
             this.Controls.Add(this.name1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.Enemy_Archer);
+            this.Controls.Add(this.Enemy_Priest);
+            this.Controls.Add(this.Enemy_Mage);
+            this.Controls.Add(this.Enemy_Warrior);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Ally_Priest);
+            this.Controls.Add(this.Ally_Archer);
+            this.Controls.Add(this.Ally_Mage);
+            this.Controls.Add(this.Ally_Warrior);
             this.Controls.Add(this.give_up);
             this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -633,22 +641,22 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Arena";
             this.Load += new System.EventHandler(this.Arena_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Warrior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Mage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Archer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Ally_Priest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Warrior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Mage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Priest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy_Archer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EnemyTurn4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AllyTurn3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -656,28 +664,28 @@
         #endregion
 
         private System.Windows.Forms.Button give_up;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox Ally_Warrior;
+        private System.Windows.Forms.PictureBox Ally_Mage;
+        private System.Windows.Forms.PictureBox Ally_Archer;
+        private System.Windows.Forms.PictureBox Ally_Priest;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox Enemy_Warrior;
+        private System.Windows.Forms.PictureBox Enemy_Mage;
+        private System.Windows.Forms.PictureBox Enemy_Priest;
+        private System.Windows.Forms.PictureBox Enemy_Archer;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label name1;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox AllyTurn1;
+        private System.Windows.Forms.PictureBox EnemyTurn1;
+        private System.Windows.Forms.PictureBox EnemyTurn2;
+        private System.Windows.Forms.PictureBox EnemyTurn3;
+        private System.Windows.Forms.PictureBox EnemyTurn4;
+        private System.Windows.Forms.PictureBox AllyTurn2;
+        private System.Windows.Forms.PictureBox AllyTurn4;
+        private System.Windows.Forms.PictureBox AllyTurn3;
         private System.Windows.Forms.Label name2;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.Label name3;

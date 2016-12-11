@@ -864,7 +864,7 @@
         KSYM817P+xoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Ally_Warrior.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QBCRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAAEyAAIAAAAU
         AAAAJgAAAAAyMDE2OjEwOjE2IDE4OjIzOjIxAP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5vAhAAAG1u
@@ -1145,7 +1145,7 @@
         Y2j0/wA+1FFFUZn/2Q==
 </value>
   </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Ally_Mage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBD
         AAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0M
@@ -1321,7 +1321,7 @@
         j5X/AHR/Srd599fpS6HIcvqGmL9oP735ewKjiipdQ/4+WoraOwH/2Q==
 </value>
   </data>
-  <data name="pictureBox4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Ally_Archer.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAXgBeAAD/4QBIRXhpZgAATU0AKgAAAAgAAgEPAAIAAAAKAAAAJgEQAAIAAAAQ
         AAAAMAAAAABGb3JNaVNvZnQAUGVyZmVjdFBob3RvLmN6AP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5v
@@ -1488,7 +1488,7 @@
         K6soVH8GI6kH+G/NsM6hQrAgeQ/fAwMACLAbfLAwMDAB/9k=
 </value>
   </data>
-  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Ally_Archer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAXgBeAAD/4QBIRXhpZgAATU0AKgAAAAgAAgEPAAIAAAAKAAAAJgEQAAIAAAAQ
         AAAAMAAAAABGb3JNaVNvZnQAUGVyZmVjdFBob3RvLmN6AP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5v
@@ -1655,7 +1655,7 @@
         K6soVH8GI6kH+G/NsM6hQrAgeQ/fAwMACLAbfLAwMDAB/9k=
 </value>
   </data>
-  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Ally_Priest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAXgBeAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBD
         AAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQ
@@ -4612,7 +4612,7 @@
         a4j6W5D+W5ABlPwtQP27n/qbn/3/A4k1t/cZXcPiAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Enemy_Warrior.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAXgBeAAD/4QBIRXhpZgAATU0AKgAAAAgAAgEPAAIAAAAKAAAAJgEQAAIAAAAQ
         AAAAMAAAAABGb3JNaVNvZnQAUGVyZmVjdFBob3RvLmN6AP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5v
@@ -4856,7 +4856,7 @@
         Kggqf//Z
 </value>
   </data>
-  <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Enemy_Mage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAXgBeAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBD
         AAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQ
@@ -5001,7 +5001,7 @@
         SQnBIK1DI44xgEGsqG//AFiT/wDJd/OsoCvbr6p50XlP/9k=
 </value>
   </data>
-  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Enemy_Priest.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBD
         AAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0M
@@ -5160,7 +5160,7 @@
         JxylFFFTLctRR//Z
 </value>
   </data>
-  <data name="pictureBox11.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Enemy_Archer.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QBCRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAAEyAAIAAAAU
         AAAAJgAAAAAyMDE2OjA2OjE1IDE4OjQyOjU4AP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5vAhAAAG1u
@@ -5350,7 +5350,7 @@
         s7rGXUFjk43tj8un4UUUGc9kb1FFFBmFFFFAH//Z
 </value>
   </data>
-  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Enemy_Archer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAYABgAAD/4QBCRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAAEyAAIAAAAU
         AAAAJgAAAAAyMDE2OjA2OjE1IDE4OjQyOjU4AP/iDFhJQ0NfUFJPRklMRQABAQAADEhMaW5vAhAAAG1u

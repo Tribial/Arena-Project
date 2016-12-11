@@ -26,33 +26,24 @@ namespace ArenaGameProject
         protected bool isAI; //true jesli to bot, false jesli gracz
         public bool _isAI { get { return isAI; } } //pobranie informaczy czyBot.
 
-        public void healthChange(bool heal, int change) // zmiana stanu zycia
+        public void healthChange(int change) // zmiana stanu zycia
         {
-            if (heal) //czy leczenie
+            if (this is Warrior)
             {
-                health += change; // zwiekszenie zycia o wartosc przekazana przez change
-
-                if (health > 100) //sprawdza czy zycia nie przekroczyły 100
-                    health = 100;
-            }
-
-            else //jesli nie leczenie, to zadanie obrazen
-            {
-                if (this is Warrior)
+                if (((Warrior)this)._moreArmor)//jesli jest to wojownik i ma zwiekszony armor
                 {
-                    if (((Warrior)this)._moreArmor)//jesli jest to wojownik i ma zwiekszony armor
-                    {
-                        health -= (int)(0.5 * change);//to dostaje jedynie połowę obrażen
-                    }
-                    else
-                        health -= change;// a jesli nie ma zwiekszonego armowa, to normalnie
+                    health -= (int)(0.5 * change);//to dostaje jedynie połowę obrażen, to samo tyczy sie leczenia
                 }
                 else
-                    health -= change;//odejmuje od żyć podana jako parametr wartosc
-
-                if (health < 0)//sprawdza czy nie nizsze niz 0
-                    health = 0;
+                    health -= change;// a jesli nie ma zwiekszonego armowa, to normalnie
             }
+            else
+                health -= change;//odejmuje od żyć podana jako parametr wartosc
+
+            if (health < 0)//sprawdza czy nie nizsze niz 0
+                health = 0;
+            if (health > 100)//sprawdza czy nie wyzsze niz 100
+                health = 100;
         }
     }
 }
