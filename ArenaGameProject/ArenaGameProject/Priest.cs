@@ -15,7 +15,7 @@ namespace ArenaGameProject
             this.name = name;
             power = 25;
             maxPower = power;
-            tacticPoints = 1;
+            tacticPoints = 2;
             health = 100;
             this.isAI = isAI;
             this.isAlly = isAlly;
@@ -24,13 +24,13 @@ namespace ArenaGameProject
         public int holyBolt()
         {
             power -= 1;
-            return Convert.ToInt32((power) * tacticPoints * (0.01 * health));
+            return Convert.ToInt32(0.75 * power * tacticPoints);
         }
 
         public int heal()
         {
             power -= 1;
-            return Convert.ToInt32(0.5 * power * tacticPoints * (0.1 * health));
+            return Convert.ToInt32(1.2 * power * tacticPoints);
         }
 
         public void regenerate()

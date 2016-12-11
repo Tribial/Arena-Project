@@ -16,30 +16,30 @@ namespace ArenaGameProject
         private List<Hero> AllyTeam;
         private List<Hero> EnemyTeam;
         private Hero current;
-        private int currentHero;
+        private int currentAlly;
+        private int currentEnemy;
         private bool whichTeam;
         private int DMG;
         private bool skill_checked;
         private bool damage_added_correctly;
 
-        private static int HP;
-        private static int Power;
 
         public Arena(List<Hero> AllyTeam, List<Hero> EnemyTeam)
         {
             this.AllyTeam = AllyTeam;
             this.EnemyTeam = EnemyTeam;
 
-            currentHero = 0;
+            currentAlly = 0;
+            currentEnemy = 0;
             whichTeam = true;
             Radio_Skills = new List<RadioButton>();
             skill_checked = false;
             damage_added_correctly = false;
 
             if (whichTeam)
-                current = AllyTeam[currentHero];
+                current = AllyTeam[currentAlly];
             else
-                current = EnemyTeam[currentHero];
+                current = EnemyTeam[currentAlly];
 
             InitializeComponent();
         }
@@ -52,13 +52,13 @@ namespace ArenaGameProject
         private void skill_CheckedChange(object sender, EventArgs e)
         {
             if (current is Warrior)
-                warrior_attack((Warrior)current);
+                warrior_attack((Warrior)current, false);
             if (current is Mage)
-                mage_attack((Mage)current);
+                mage_attack((Mage)current, false);
             if (current is Archer)
                 archer_attack((Archer)current);
             if (current is Priest)
-                priest_attack((Priest)current);
+                priest_attack((Priest)current, false);
             skill_checked = true;
         }
 
@@ -69,11 +69,11 @@ namespace ArenaGameProject
             Radio_Skills.Add(radioButton3);
 
             current = AllyTeam[0];
-            remeber();
 
             skill_check();
 
             set();
+            set_marker();
         }
         private void skill_check()
         {
@@ -122,6 +122,7 @@ namespace ArenaGameProject
             if (current is Mage)
             {
                 radioButton3.Text = "Blizzard";
+                radioButton3.Enabled = true;
             }
             if (current is Priest)
             {
@@ -138,14 +139,17 @@ namespace ArenaGameProject
             if (current is Warrior)
             {
                 button4.Text = "Battle Shout";
+                button4.Enabled = true;
             }
             if (current is Mage)
             {
                 button4.Text = "Regenerate";
+                button4.Enabled = true;
             }
             if (current is Priest)
             {
                 button4.Text = "Regenerate";
+                button4.Enabled = true;
             }
             if (current is Archer)
             {
@@ -154,27 +158,24 @@ namespace ArenaGameProject
             }
             #endregion
         }
-        private void warrior_attack(Warrior hero)
+        private void warrior_attack(Warrior hero, bool fourthSkill)
         {
-            paste();
-            remeber();
-            if (radioButton1.Checked)
+            if (fourthSkill)
+                hero.warShout();
+            else if (radioButton1.Checked)
                 DMG = hero.swordHit();
-            if (radioButton2.Checked)
+            else if (radioButton2.Checked)
                 DMG = hero.powerHit();
         }
-        private void mage_attack(Mage hero)
+        private void mage_attack(Mage hero, bool fourthSkill)
         {
-            paste();
-            remeber();
-            if (radioButton1.Checked)
-            {
+            if (fourthSkill)
+                hero.regenerate();
+            else if (radioButton1.Checked)
                 DMG = hero.lightningBolt();
-                AllyTurn1.Visible = true;
-            }
-            if (radioButton2.Checked)
+            else if (radioButton2.Checked)
                 DMG = hero.fireBall();
-            if (radioButton3.Checked)
+            else if (radioButton3.Checked)
             {
                 DMG = hero.Blizzard();
                 //there will be more
@@ -182,41 +183,53 @@ namespace ArenaGameProject
         }
         private void archer_attack(Archer hero)
         {
-            paste();
-            remeber();
             if (radioButton1.Checked)
                 DMG = hero.shoot();
             if (radioButton2.Checked)
                 DMG = hero.doubleShot();
         }
-        private void priest_attack(Priest hero)
+        private void priest_attack(Priest hero, bool fourthSkill)
         {
-            paste();
-            remeber();
-            if (radioButton1.Checked)
+            if (fourthSkill)
+                hero.regenerate();
+            else if (radioButton1.Checked)
                 DMG = hero.holyBolt();
-            if (radioButton2.Checked)
-                DMG = hero.heal();
+            else if (radioButton2.Checked)
+                DMG = -hero.heal();
         }
 
-        private void remeber()
+        private void set_marker()
         {
-            HP = current.Health;
-            Power = current.Power;
-        }
-        private void paste()
-        {
-            if(whichTeam)
+            if(current is Warrior)
             {
-                AllyTeam[currentHero].Health = HP;
-                AllyTeam[currentHero].Power = Power;
+                if (whichTeam)
+                    AllyTurn1.Visible = true;
+                else
+                    EnemyTurn1.Visible = true;
             }
-            if (!whichTeam)
+            if (current is Mage)
             {
-                EnemyTeam[currentHero].Health = HP;
-                EnemyTeam[currentHero].Power = Power;
+                if (whichTeam)
+                    AllyTurn2.Visible = true;
+                else
+                    EnemyTurn2.Visible = true;
+            }
+            if (current is Archer)
+            {
+                if (whichTeam)
+                    AllyTurn3.Visible = true;
+                else
+                    EnemyTurn3.Visible = true;
+            }
+            if (current is Priest)
+            {
+                if (whichTeam)
+                    AllyTurn4.Visible = true;
+                else
+                    EnemyTurn4.Visible = true;
             }
         }
+
         private void set()
         {
             foreach(var hero in AllyTeam)
@@ -277,22 +290,22 @@ namespace ArenaGameProject
             {
                 for (int i = 0; i < AllyTeam.Count; i++)
                 {
-                    if (AllyTeam[i] is Warrior && sender.Equals(Ally_Warrior))
+                    if (AllyTeam[i] is Warrior && sender.Equals(Ally_Warrior) && AllyTeam[i] != current)
                     {
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (AllyTeam[i] is Mage && sender.Equals(Ally_Mage))
+                    else if (AllyTeam[i] is Mage && sender.Equals(Ally_Mage) && AllyTeam[i] != current)
                     {
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (AllyTeam[i] is Archer && sender.Equals(Ally_Archer))
+                    else if (AllyTeam[i] is Archer && sender.Equals(Ally_Archer) && AllyTeam[i] != current)
                     {
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (AllyTeam[i] is Priest && sender.Equals(Ally_Priest))
+                    else if (AllyTeam[i] is Priest && sender.Equals(Ally_Priest) && (AllyTeam[i] != current || radioButton2.Checked))
                     {
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
@@ -301,22 +314,22 @@ namespace ArenaGameProject
 
                 for (int i = 0; i < EnemyTeam.Count; i++)
                 {
-                    if (EnemyTeam[i] is Warrior && sender.Equals(Enemy_Warrior))
+                    if (EnemyTeam[i] is Warrior && sender.Equals(Enemy_Warrior) && EnemyTeam[i] != current)
                     {
                         EnemyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (EnemyTeam[i] is Mage && sender.Equals(Enemy_Mage))
+                    else if (EnemyTeam[i] is Mage && sender.Equals(Enemy_Mage) && EnemyTeam[i] != current)
                     {
                         EnemyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (EnemyTeam[i] is Archer && sender.Equals(Enemy_Archer))
+                    else if (EnemyTeam[i] is Archer && sender.Equals(Enemy_Archer) && EnemyTeam[i] != current)
                     {
                         EnemyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
-                    else if (EnemyTeam[i] is Priest && sender.Equals(Enemy_Priest))
+                    else if (EnemyTeam[i] is Priest && sender.Equals(Enemy_Priest) && (EnemyTeam[i] != current || radioButton2.Checked))
                     {
                         EnemyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
@@ -326,9 +339,16 @@ namespace ArenaGameProject
                 {
                     uncheck_buttons_and_markers();
                     damage_added_correctly = false;
-                    next_turn();
-                    skill_check();
                     set();
+                    check_dead();
+                    if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)
+                        Close();
+                    else
+                    {
+                        next_turn();
+                        skill_check();
+                        set_marker();
+                    }
                 }
             }
             
@@ -341,36 +361,90 @@ namespace ArenaGameProject
             }
             skill_checked = false;
 
-            Ally_Warrior.Visible = false;
-            Ally_Archer.Visible = false;
-            Ally_Mage.Visible = false;
-            Ally_Priest.Visible = false;
+            AllyTurn1.Visible = false;
+            AllyTurn2.Visible = false;
+            AllyTurn3.Visible = false;
+            AllyTurn4.Visible = false;
 
-            Enemy_Warrior.Visible = false;
-            Enemy_Archer.Visible = false;
-            Enemy_Mage.Visible = false;
-            Enemy_Priest.Visible = false;
-
+            EnemyTurn1.Visible = false;
+            EnemyTurn2.Visible = false;
+            EnemyTurn3.Visible = false;
+            EnemyTurn4.Visible = false;
         }
         private void next_turn()
         {
-            if (whichTeam)
+            if(whichTeam)
+            {
+                currentAlly++;
+                if(currentAlly > AllyTeam.Count - 1)
+                    currentAlly = 0;
                 whichTeam = false;
-            else if(!whichTeam && currentHero == EnemyTeam.Count-1)
-            {
-                whichTeam = true;
-                currentHero = 0;
             }
-            else if(!whichTeam)
-            {
-                whichTeam = true;
-                currentHero++;
-            }
-
-            if (whichTeam)
-                current = AllyTeam[currentHero];
             else
-                current = EnemyTeam[currentHero];
+            {
+                currentEnemy++;
+                if (currentEnemy > EnemyTeam.Count - 1)
+                    currentEnemy = 0;
+                whichTeam = true;
+            }
+            
+            if (whichTeam)
+                current = AllyTeam[currentAlly];
+            else
+                current = EnemyTeam[currentEnemy];
+        }
+
+        private void check_dead()
+        {
+            ArenaGameProject.Menu.AllyWin = true;
+            ArenaGameProject.Menu.EnemyWin = true;
+            for(int i = 0; i < AllyTeam.Count; i++)
+            {
+                if (AllyTeam[i].Health <= 0)
+                {
+                    AllyTeam.Remove(AllyTeam[i]);
+                    i--;
+                }
+                else
+                    ArenaGameProject.Menu.EnemyWin = false;
+            }
+            for (int i = 0; i < EnemyTeam.Count; i++)
+            {
+                if (EnemyTeam[i].Health <= 0)
+                {
+                    EnemyTeam.Remove(EnemyTeam[i]);
+                    i--;
+                }
+                else
+                    ArenaGameProject.Menu.AllyWin = false;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (whichTeam)
+            {
+                if (AllyTeam[currentAlly] is Warrior)
+                    warrior_attack((Warrior)AllyTeam[currentAlly], true);
+                if (AllyTeam[currentAlly] is Mage)
+                    mage_attack((Mage)AllyTeam[currentAlly], true);
+                if (AllyTeam[currentAlly] is Priest)
+                    priest_attack((Priest)AllyTeam[currentAlly], true);
+            }
+            else
+            {
+                if (EnemyTeam[currentEnemy] is Warrior)
+                    warrior_attack((Warrior)EnemyTeam[currentEnemy], true);
+                if (EnemyTeam[currentEnemy] is Mage)
+                    mage_attack((Mage)EnemyTeam[currentEnemy], true);
+                if (EnemyTeam[currentEnemy] is Priest)
+                    priest_attack((Priest)EnemyTeam[currentEnemy], true);
+            }
+            uncheck_buttons_and_markers();
+            set();
+            next_turn();
+            skill_check();
+            set_marker();
         }
     }
 }

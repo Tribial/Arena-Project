@@ -181,7 +181,6 @@ namespace ArenaGameProject
             if (currentTeamSize == 2 * teamSize)
             {
                 Arena fight = new Arena(AllyTeam, EnemyTeam);
-                this.Hide();
                 fight.ShowDialog();
                 this.Close();
             }

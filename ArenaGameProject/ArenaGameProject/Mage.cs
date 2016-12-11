@@ -25,19 +25,19 @@ namespace ArenaGameProject
         public int fireBall()
         {
             power -= 3;
-            return Convert.ToInt32((power + 3) * 0.75 * tacticPoints * (0.01 * health));
+            return Convert.ToInt32((power + 3) * 0.75 * tacticPoints * 0.9);
         }
 
         public int Blizzard()
         {
             power -= 5;
-            return Convert.ToInt32((power + 5) * 0.6 * tacticPoints * (0.01 * health));
+            return Convert.ToInt32((power + 5) * 0.6 * tacticPoints * 0.9);
         }
 
         public int lightningBolt()
         {
             power -= 1;
-            return Convert.ToInt32((power + 1) * 0.5 * tacticPoints * (0.01 * health));
+            return Convert.ToInt32((power + 1) * 0.5 * tacticPoints * 0.9);
         }
 
         public void regenerate()

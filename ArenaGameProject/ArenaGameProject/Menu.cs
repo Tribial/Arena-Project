@@ -12,6 +12,9 @@ namespace ArenaGameProject
 {
     public partial class Menu : Form
     {
+        public static bool AllyWin;
+        public static bool EnemyWin;
+
         public Menu()
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace ArenaGameProject
             this.Hide();
             ch.ShowDialog();
             this.Show();
+            checkWin();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -36,6 +40,7 @@ namespace ArenaGameProject
             this.Hide();
             ch.ShowDialog();
             this.Show();
+            checkWin();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -44,14 +49,21 @@ namespace ArenaGameProject
             this.Hide();
             ch.ShowDialog();
             this.Show();
+            checkWin();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void checkWin()
         {
-            Arena ar = new Arena(new List<Hero>(), new List<Hero>());
-            this.Hide();
-            ar.ShowDialog();
-            this.Show();
+            if (AllyWin)
+            {
+                EndFight ef = new EndFight(true);
+                ef.Show();
+            }
+            if(EnemyWin)
+            {
+                EndFight ef = new EndFight(false);
+                ef.Show();
+            }
         }
     }
 }
