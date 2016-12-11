@@ -42,9 +42,8 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
+            this.name1 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
@@ -53,18 +52,24 @@
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.name2 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
+            this.name3 = new System.Windows.Forms.Label();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
-            this.progressBar5 = new System.Windows.Forms.ProgressBar();
+            this.manaBar1 = new System.Windows.Forms.ProgressBar();
+            this.manaBar2 = new System.Windows.Forms.ProgressBar();
+            this.name4 = new System.Windows.Forms.Label();
             this.progressBar4 = new System.Windows.Forms.ProgressBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.progressBar6 = new System.Windows.Forms.ProgressBar();
-            this.label6 = new System.Windows.Forms.Label();
+            this.name5 = new System.Windows.Forms.Label();
+            this.progressBar5 = new System.Windows.Forms.ProgressBar();
+            this.name7 = new System.Windows.Forms.Label();
             this.progressBar7 = new System.Windows.Forms.ProgressBar();
-            this.label7 = new System.Windows.Forms.Label();
+            this.manaBar4 = new System.Windows.Forms.ProgressBar();
+            this.name8 = new System.Windows.Forms.Label();
             this.progressBar8 = new System.Windows.Forms.ProgressBar();
+            this.manaBar3 = new System.Windows.Forms.ProgressBar();
+            this.name6 = new System.Windows.Forms.Label();
+            this.progressBar6 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -109,7 +114,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(133, 168);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox3
             // 
@@ -257,15 +261,6 @@
             this.button4.Text = "S4";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(831, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "label1";
-            // 
             // progressBar1
             // 
             this.progressBar1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -278,15 +273,15 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 18;
             // 
-            // label2
+            // name1
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label2.Location = new System.Drawing.Point(167, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 25);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "None";
+            this.name1.BackColor = System.Drawing.Color.Transparent;
+            this.name1.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name1.Location = new System.Drawing.Point(167, 45);
+            this.name1.Name = "name1";
+            this.name1.Size = new System.Drawing.Size(200, 25);
+            this.name1.TabIndex = 19;
+            this.name1.Text = "None";
             // 
             // pictureBox7
             // 
@@ -368,15 +363,15 @@
             this.pictureBox18.TabStop = false;
             this.pictureBox18.Visible = false;
             // 
-            // label3
+            // name2
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label3.Location = new System.Drawing.Point(167, 237);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 25);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "None";
+            this.name2.BackColor = System.Drawing.Color.Transparent;
+            this.name2.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name2.Location = new System.Drawing.Point(167, 237);
+            this.name2.Name = "name2";
+            this.name2.Size = new System.Drawing.Size(200, 25);
+            this.name2.TabIndex = 29;
+            this.name2.Text = "None";
             // 
             // progressBar2
             // 
@@ -390,15 +385,15 @@
             this.progressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar2.TabIndex = 28;
             // 
-            // label4
+            // name3
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label4.Location = new System.Drawing.Point(167, 429);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 25);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "None";
+            this.name3.BackColor = System.Drawing.Color.Transparent;
+            this.name3.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name3.Location = new System.Drawing.Point(167, 429);
+            this.name3.Name = "name3";
+            this.name3.Size = new System.Drawing.Size(200, 25);
+            this.name3.TabIndex = 31;
+            this.name3.Text = "None";
             // 
             // progressBar3
             // 
@@ -412,96 +407,177 @@
             this.progressBar3.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar3.TabIndex = 30;
             // 
-            // progressBar5
+            // manaBar1
             // 
-            this.progressBar5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.progressBar5.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar5.Location = new System.Drawing.Point(167, 275);
-            this.progressBar5.Name = "progressBar5";
-            this.progressBar5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.progressBar5.Size = new System.Drawing.Size(200, 20);
-            this.progressBar5.Step = 0;
-            this.progressBar5.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar5.TabIndex = 34;
+            this.manaBar1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manaBar1.ForeColor = System.Drawing.Color.Cyan;
+            this.manaBar1.Location = new System.Drawing.Point(167, 275);
+            this.manaBar1.Maximum = 25;
+            this.manaBar1.Name = "manaBar1";
+            this.manaBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.manaBar1.Size = new System.Drawing.Size(200, 20);
+            this.manaBar1.Step = 0;
+            this.manaBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.manaBar1.TabIndex = 34;
+            // 
+            // manaBar2
+            // 
+            this.manaBar2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manaBar2.ForeColor = System.Drawing.Color.Cyan;
+            this.manaBar2.Location = new System.Drawing.Point(167, 659);
+            this.manaBar2.Maximum = 25;
+            this.manaBar2.Name = "manaBar2";
+            this.manaBar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.manaBar2.Size = new System.Drawing.Size(200, 20);
+            this.manaBar2.Step = 0;
+            this.manaBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.manaBar2.TabIndex = 37;
+            // 
+            // name4
+            // 
+            this.name4.BackColor = System.Drawing.Color.Transparent;
+            this.name4.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name4.Location = new System.Drawing.Point(167, 621);
+            this.name4.Name = "name4";
+            this.name4.Size = new System.Drawing.Size(200, 25);
+            this.name4.TabIndex = 36;
+            this.name4.Text = "None";
             // 
             // progressBar4
             // 
             this.progressBar4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.progressBar4.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar4.Location = new System.Drawing.Point(167, 659);
+            this.progressBar4.Location = new System.Drawing.Point(167, 588);
             this.progressBar4.Name = "progressBar4";
             this.progressBar4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.progressBar4.Size = new System.Drawing.Size(200, 20);
             this.progressBar4.Step = 0;
             this.progressBar4.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar4.TabIndex = 37;
+            this.progressBar4.TabIndex = 35;
             // 
-            // label5
+            // name5
             // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label5.Location = new System.Drawing.Point(167, 621);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(200, 25);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "None";
+            this.name5.BackColor = System.Drawing.Color.Transparent;
+            this.name5.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name5.Location = new System.Drawing.Point(999, 45);
+            this.name5.Name = "name5";
+            this.name5.Size = new System.Drawing.Size(200, 25);
+            this.name5.TabIndex = 39;
+            this.name5.Text = "None";
+            this.name5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // progressBar6
+            // progressBar5
             // 
-            this.progressBar6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.progressBar6.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar6.Location = new System.Drawing.Point(167, 588);
-            this.progressBar6.Name = "progressBar6";
-            this.progressBar6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.progressBar6.Size = new System.Drawing.Size(200, 20);
-            this.progressBar6.Step = 0;
-            this.progressBar6.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar6.TabIndex = 35;
+            this.progressBar5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.progressBar5.ForeColor = System.Drawing.Color.Lime;
+            this.progressBar5.Location = new System.Drawing.Point(999, 12);
+            this.progressBar5.Name = "progressBar5";
+            this.progressBar5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.progressBar5.RightToLeftLayout = true;
+            this.progressBar5.Size = new System.Drawing.Size(200, 20);
+            this.progressBar5.Step = 0;
+            this.progressBar5.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar5.TabIndex = 38;
             // 
-            // label6
+            // name7
             // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label6.Location = new System.Drawing.Point(999, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 25);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "None";
+            this.name7.BackColor = System.Drawing.Color.Transparent;
+            this.name7.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name7.Location = new System.Drawing.Point(999, 429);
+            this.name7.Name = "name7";
+            this.name7.Size = new System.Drawing.Size(200, 25);
+            this.name7.TabIndex = 41;
+            this.name7.Text = "None";
+            this.name7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // progressBar7
             // 
             this.progressBar7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.progressBar7.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar7.Location = new System.Drawing.Point(999, 12);
+            this.progressBar7.Location = new System.Drawing.Point(999, 396);
             this.progressBar7.Name = "progressBar7";
             this.progressBar7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.progressBar7.RightToLeftLayout = true;
             this.progressBar7.Size = new System.Drawing.Size(200, 20);
             this.progressBar7.Step = 0;
             this.progressBar7.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar7.TabIndex = 38;
+            this.progressBar7.TabIndex = 40;
             // 
-            // label7
+            // manaBar4
             // 
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
-            this.label7.Location = new System.Drawing.Point(999, 429);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(200, 25);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "None";
+            this.manaBar4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manaBar4.ForeColor = System.Drawing.Color.Cyan;
+            this.manaBar4.Location = new System.Drawing.Point(999, 659);
+            this.manaBar4.Maximum = 25;
+            this.manaBar4.Name = "manaBar4";
+            this.manaBar4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.manaBar4.RightToLeftLayout = true;
+            this.manaBar4.Size = new System.Drawing.Size(200, 20);
+            this.manaBar4.Step = 0;
+            this.manaBar4.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.manaBar4.TabIndex = 44;
+            // 
+            // name8
+            // 
+            this.name8.BackColor = System.Drawing.Color.Transparent;
+            this.name8.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name8.Location = new System.Drawing.Point(999, 621);
+            this.name8.Name = "name8";
+            this.name8.Size = new System.Drawing.Size(200, 25);
+            this.name8.TabIndex = 43;
+            this.name8.Text = "None";
+            this.name8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // progressBar8
             // 
             this.progressBar8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.progressBar8.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar8.Location = new System.Drawing.Point(999, 396);
+            this.progressBar8.Location = new System.Drawing.Point(999, 588);
             this.progressBar8.Name = "progressBar8";
             this.progressBar8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.progressBar8.RightToLeftLayout = true;
             this.progressBar8.Size = new System.Drawing.Size(200, 20);
             this.progressBar8.Step = 0;
             this.progressBar8.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar8.TabIndex = 40;
+            this.progressBar8.TabIndex = 42;
+            // 
+            // manaBar3
+            // 
+            this.manaBar3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manaBar3.ForeColor = System.Drawing.Color.Cyan;
+            this.manaBar3.Location = new System.Drawing.Point(999, 275);
+            this.manaBar3.Maximum = 25;
+            this.manaBar3.Name = "manaBar3";
+            this.manaBar3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.manaBar3.RightToLeftLayout = true;
+            this.manaBar3.Size = new System.Drawing.Size(200, 20);
+            this.manaBar3.Step = 0;
+            this.manaBar3.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.manaBar3.TabIndex = 47;
+            // 
+            // name6
+            // 
+            this.name6.BackColor = System.Drawing.Color.Transparent;
+            this.name6.Font = new System.Drawing.Font("Viner Hand ITC", 14.25F);
+            this.name6.Location = new System.Drawing.Point(999, 237);
+            this.name6.Name = "name6";
+            this.name6.Size = new System.Drawing.Size(200, 25);
+            this.name6.TabIndex = 46;
+            this.name6.Text = "None";
+            this.name6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // progressBar6
+            // 
+            this.progressBar6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.progressBar6.ForeColor = System.Drawing.Color.Lime;
+            this.progressBar6.Location = new System.Drawing.Point(999, 204);
+            this.progressBar6.Name = "progressBar6";
+            this.progressBar6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.progressBar6.RightToLeftLayout = true;
+            this.progressBar6.Size = new System.Drawing.Size(200, 20);
+            this.progressBar6.Step = 0;
+            this.progressBar6.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar6.TabIndex = 45;
             // 
             // Arena
             // 
@@ -510,17 +586,23 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.progressBar8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.progressBar7);
-            this.Controls.Add(this.progressBar4);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.manaBar3);
+            this.Controls.Add(this.name6);
             this.Controls.Add(this.progressBar6);
+            this.Controls.Add(this.manaBar4);
+            this.Controls.Add(this.name8);
+            this.Controls.Add(this.progressBar8);
+            this.Controls.Add(this.name7);
+            this.Controls.Add(this.progressBar7);
+            this.Controls.Add(this.name5);
             this.Controls.Add(this.progressBar5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.manaBar2);
+            this.Controls.Add(this.name4);
+            this.Controls.Add(this.progressBar4);
+            this.Controls.Add(this.manaBar1);
+            this.Controls.Add(this.name3);
             this.Controls.Add(this.progressBar3);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.name2);
             this.Controls.Add(this.progressBar2);
             this.Controls.Add(this.pictureBox18);
             this.Controls.Add(this.pictureBox17);
@@ -530,9 +612,8 @@
             this.Controls.Add(this.pictureBox13);
             this.Controls.Add(this.pictureBox12);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.name1);
             this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.pictureBox10);
@@ -569,7 +650,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -588,9 +668,8 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label name1;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.PictureBox pictureBox13;
@@ -599,17 +678,23 @@
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label name2;
         private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label name3;
         private System.Windows.Forms.ProgressBar progressBar3;
-        private System.Windows.Forms.ProgressBar progressBar5;
+        private System.Windows.Forms.ProgressBar manaBar1;
+        private System.Windows.Forms.ProgressBar manaBar2;
+        private System.Windows.Forms.Label name4;
         private System.Windows.Forms.ProgressBar progressBar4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ProgressBar progressBar6;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label name5;
+        private System.Windows.Forms.ProgressBar progressBar5;
+        private System.Windows.Forms.Label name7;
         private System.Windows.Forms.ProgressBar progressBar7;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ProgressBar manaBar4;
+        private System.Windows.Forms.Label name8;
         private System.Windows.Forms.ProgressBar progressBar8;
+        private System.Windows.Forms.ProgressBar manaBar3;
+        private System.Windows.Forms.Label name6;
+        private System.Windows.Forms.ProgressBar progressBar6;
     }
 }

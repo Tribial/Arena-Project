@@ -38,9 +38,6 @@ namespace ArenaGameProject
             Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {}
-
         private void skill_CheckedChange(object sender, EventArgs e)
         {
             if (whichTeam)
@@ -56,10 +53,6 @@ namespace ArenaGameProject
                 archer_attack((Archer)current);
             if (current is Priest)
                 priest_attack((Priest)current);
-            label1.Text = DMG.ToString();
-            AllyTeam[0].Health = AllyTeam[0].Health - DMG;
-            label2.Text = AllyTeam[0].Health.ToString();
-            progressBar1.Value = AllyTeam[0].Health;
         }
 
         private void Arena_Load(object sender, EventArgs e)
@@ -68,14 +61,12 @@ namespace ArenaGameProject
             Radio_Skills.Add(radioButton2);
             Radio_Skills.Add(radioButton3);
 
-            progressBar1.Value = AllyTeam[0].Health;
-            label2.Text = AllyTeam[0].Health.ToString();
-            progressBar7.Value = 77;
-
             current = AllyTeam[0];
             remeber();
 
             skill_check();
+
+            set();
         }
         private void skill_check()
         {
@@ -212,6 +203,60 @@ namespace ArenaGameProject
             {
                 EnemyTeam[currentHero].Health = HP;
                 EnemyTeam[currentHero].Power = Power;
+            }
+        }
+        private void set()
+        {
+            foreach(var hero in AllyTeam)
+            {
+                if(hero is Warrior)
+                {
+                    progressBar1.Value = hero.Health;
+                    name1.Text = hero.Name;
+                }
+                if (hero is Mage)
+                {
+                    progressBar2.Value = hero.Health;
+                    name2.Text = hero.Name;
+                    manaBar1.Value = hero.Power;
+                }
+                if (hero is Archer)
+                {
+                    progressBar3.Value = hero.Health;
+                    name3.Text = hero.Name;
+                }
+                if (hero is Priest) 
+                {
+                    progressBar4.Value = hero.Health;
+                    name4.Text = hero.Name;
+                    manaBar2.Value = hero.Power;
+                }
+            }
+
+            foreach (var hero in EnemyTeam)
+            {
+                if (hero is Warrior)
+                {
+                    progressBar5.Value = hero.Health;
+                    name5.Text = hero.Name;
+                }
+                if (hero is Mage)
+                {
+                    progressBar6.Value = hero.Health;
+                    name6.Text = hero.Name;
+                    manaBar3.Value = hero.Power;
+                }
+                if (hero is Archer)
+                {
+                    progressBar7.Value = hero.Health;
+                    name7.Text = hero.Name;
+                }
+                if (hero is Priest)
+                {
+                    progressBar8.Value = hero.Health;
+                    name8.Text = hero.Name;
+                    manaBar4.Value = hero.Power;
+                }
             }
         }
     }
