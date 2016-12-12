@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Media;
 
 namespace ArenaGameProject
 {
@@ -14,9 +16,12 @@ namespace ArenaGameProject
     {
         public static bool AllyWin;//pole bool które mówi kto wygrał
         public static bool EnemyWin;
-
+        SoundPlayer mainSound;
         public Menu()
         {
+            string path = Directory.GetCurrentDirectory() + "\\Resources\\Sounds\\Main.wav";
+            mainSound = new SoundPlayer(@path);
+            mainSound.Play();
             InitializeComponent();
         }
 
@@ -29,8 +34,10 @@ namespace ArenaGameProject
         {
             CharacterSelect ch = new CharacterSelect(1);
             this.Hide();
+            mainSound.Stop();
             ch.ShowDialog();
             this.Show();
+            mainSound.Play();
             checkWin();
         }
 
@@ -38,8 +45,10 @@ namespace ArenaGameProject
         {
             CharacterSelect ch = new CharacterSelect(2);
             this.Hide();
+            mainSound.Stop();
             ch.ShowDialog();
             this.Show();
+            mainSound.Play();
             checkWin();
         }
 
@@ -47,8 +56,10 @@ namespace ArenaGameProject
         {
             CharacterSelect ch = new CharacterSelect(4);
             this.Hide();
+            mainSound.Stop();
             ch.ShowDialog();
             this.Show();
+            mainSound.Play();
             checkWin();
         }
 

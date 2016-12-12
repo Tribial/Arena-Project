@@ -187,6 +187,7 @@
             this.radioButton2.Text = "S2";
             this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButton2.UseVisualStyleBackColor = false;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.skill_CheckedChange);
             this.radioButton2.Click += new System.EventHandler(this.skill_CheckedChange);
             // 
             // radioButton3

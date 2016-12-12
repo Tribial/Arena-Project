@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Media;
 
 namespace ArenaGameProject
 {
@@ -22,6 +24,7 @@ namespace ArenaGameProject
         private int DMG;//zadawanie obrazenia
         private bool skill_checked;//czy zaznaczony jest skill(RadioButton)
         private bool damage_added_correctly;//czy obrazenia zostaly zadane
+        SoundPlayer arenaSound;
 
 
         public Arena(List<Hero> AllyTeam, List<Hero> EnemyTeam)//konstruktor
@@ -61,6 +64,10 @@ namespace ArenaGameProject
 
         private void Arena_Load(object sender, EventArgs e)//przy wczytaniu Form'a
         {
+            string path = Directory.GetCurrentDirectory() + "\\Resources\\Sounds\\Arena.wav";
+            arenaSound = new SoundPlayer(@path);
+            arenaSound.Play();
+
             Radio_Skills.Add(radioButton1);
             Radio_Skills.Add(radioButton2);
             Radio_Skills.Add(radioButton3);//dodajemy radioButton'y do listy
@@ -412,12 +419,15 @@ namespace ArenaGameProject
                     currentEnemy = 0;//ustawiamy na zero
                 whichTeam = true;//zmieniamy druzyne na przyajciół
             }
-            
-            if (whichTeam)//w zaleznosci od obecnie grająćej druzyny
-                current = AllyTeam[currentAlly];//jest ustawiany obecny bohater
+            if (ArenaGameProject.Menu.EnemyWin || ArenaGameProject.Menu.AllyWin)
+                Close();//kolejny raz to, poniewaz byl problem gdy Mage zabijał blizzardem
             else
-                current = EnemyTeam[currentEnemy];
-            
+            {
+                if (whichTeam)//w zaleznosci od obecnie grająćej druzyny
+                    current = AllyTeam[currentAlly];//jest ustawiany obecny bohater
+                else
+                    current = EnemyTeam[currentEnemy];
+            }
             if (current._isAI)//jesli obecny bohater jest komputere
                 bot_Attack();//komputer atakuje
         }

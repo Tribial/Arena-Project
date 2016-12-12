@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.IO;
 
 namespace ArenaGameProject
 {
@@ -14,6 +16,7 @@ namespace ArenaGameProject
     {
         private List<Hero> AllyTeam;//Listy druzyn
         private List<Hero> EnemyTeam;
+        SoundPlayer characterSound;
 
         private static bool whichTeam;//boolean który definiuje dla ktorej druzyny wybieramy
         private static int teamSize;//maksymalny rozmiar druzyny
@@ -22,6 +25,8 @@ namespace ArenaGameProject
 
         public CharacterSelect(int size)//konstruktor w ktorym przekazujemy rozmiar druzyn
         {
+            
+
             AllyTeam = new List<Hero>();
             EnemyTeam = new List<Hero>();
             teamSize = size;
@@ -88,6 +93,9 @@ namespace ArenaGameProject
 
         private void CharacterSelect_Load(object sender, EventArgs e)//przy wczytaniu Form'a
         {
+            string path = Directory.GetCurrentDirectory() + "\\Resources\\Sounds\\characterSelect.wav";
+            characterSound = new SoundPlayer(@path);
+            characterSound.Play();
             checkState();
         }
 
@@ -180,6 +188,7 @@ namespace ArenaGameProject
             if (currentTeamSize == 2 * teamSize)//jesli juz dla obu druzyn zostało wybrane
             {
                 Arena fight = new Arena(AllyTeam, EnemyTeam);
+                characterSound.Stop();
                 fight.ShowDialog();//wlacza sie arena i zaczyna walka
                 this.Close();
             }
