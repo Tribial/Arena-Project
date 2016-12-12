@@ -12,70 +12,67 @@ namespace ArenaGameProject
 {
     public partial class Arena : Form
     {
-        private List<RadioButton> Radio_Skills;
-        private List<Hero> AllyTeam;
-        private List<Hero> EnemyTeam;
-        private Hero current;
-        private int currentAlly;
-        private int currentEnemy;
-        private bool whichTeam;
-        private int DMG;
-        private bool skill_checked;
-        private bool damage_added_correctly;
+        private List<RadioButton> Radio_Skills;//umiejetnosci
+        private List<Hero> AllyTeam;//przyjazna druzyna
+        private List<Hero> EnemyTeam;//druzyna wrogow
+        private Hero current;//obecnie wybierajacy bohater
+        private int currentAlly;//indeks obecnie wybierajcego przyjaciela
+        private int currentEnemy;//indeks obecnie wybierajacego wroga
+        private bool whichTeam;//boolean któy mówi nam która drużyna teraz gra
+        private int DMG;//zadawanie obrazenia
+        private bool skill_checked;//czy zaznaczony jest skill(RadioButton)
+        private bool damage_added_correctly;//czy obrazenia zostaly zadane
 
 
-        public Arena(List<Hero> AllyTeam, List<Hero> EnemyTeam)
+        public Arena(List<Hero> AllyTeam, List<Hero> EnemyTeam)//konstruktor
         {
-            this.AllyTeam = AllyTeam;
+            this.AllyTeam = AllyTeam;//przypisujemy listy
             this.EnemyTeam = EnemyTeam;
 
-            currentAlly = 0;
+            currentAlly = 0;//obecnie wybrani bohaterowie
             currentEnemy = 0;
-            whichTeam = true;
+            whichTeam = true;//true - przyjazna druzyna;false - wroga druzyna
             Radio_Skills = new List<RadioButton>();
-            skill_checked = false;
+            skill_checked = false;//zaznaczony skill false
             damage_added_correctly = false;
 
-            if (whichTeam)
-                current = AllyTeam[currentAlly];
-            else
-                current = EnemyTeam[currentAlly];
+            
 
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//wychodzimy z gry
         }
 
-        private void skill_CheckedChange(object sender, EventArgs e)
-        {
+        private void skill_CheckedChange(object sender, EventArgs e)//gdy zostanie zmieniony radiobutton(skill)
+        {//to w zależności od klasy wybieramy metodę
             if (current is Warrior)
-                warrior_attack((Warrior)current, false);
+                warrior_attack((Warrior)current, false);//do czego jest false zostanie wyjasnione przy metodzie
             if (current is Mage)
                 mage_attack((Mage)current, false);
             if (current is Archer)
                 archer_attack((Archer)current);
             if (current is Priest)
                 priest_attack((Priest)current, false);
-            skill_checked = true;
+            skill_checked = true;//radiobutton(skill) zostal zaznaczony
         }
 
-        private void Arena_Load(object sender, EventArgs e)
+        private void Arena_Load(object sender, EventArgs e)//przy wczytaniu Form'a
         {
             Radio_Skills.Add(radioButton1);
             Radio_Skills.Add(radioButton2);
-            Radio_Skills.Add(radioButton3);
+            Radio_Skills.Add(radioButton3);//dodajemy radioButton'y do listy
 
-            current = AllyTeam[0];
+            current = AllyTeam[0];// zaczyna pierszy wybrany bohater druzyny przyjaciol
 
-            skill_check();
+            skill_check();//sprawdzamy umiejetnosci postaci
 
-            set();
-            set_marker();
+            set();//ustawiamy zycia i imiona
+            set_marker();//ustawiamy znacznik
         }
-        private void skill_check()
+        private void skill_check()//w zaleznosci od klasy, po kolei kazda umiejętność jest ustawiana
         {
             #region First button
             if (current is Warrior)
@@ -116,8 +113,8 @@ namespace ArenaGameProject
             #region Third button
             if (current is Warrior)
             {
-                radioButton3.Text = "None";
-                radioButton3.Enabled = false;
+                radioButton3.Text = "None";//jesli ktos danej umiejetnosci nie posiada jest nazwana ona None
+                radioButton3.Enabled = false;//oraz wylaczona
             }
             if (current is Mage)
             {
@@ -136,7 +133,7 @@ namespace ArenaGameProject
             }
             #endregion
             #region Fourth button
-            if (current is Warrior)
+            if (current is Warrior)//czwarty przycik jest zwykłym buttonem
             {
                 button4.Text = "Battle Shout";
                 button4.Enabled = true;
@@ -158,17 +155,17 @@ namespace ArenaGameProject
             }
             #endregion
         }
-        private void warrior_attack(Warrior hero, bool fourthSkill)
+        private void warrior_attack(Warrior hero, bool fourthSkill)//atakuje Warrior
         {
-            hero.checkWarShout();
-            if (fourthSkill)
-                hero.warShout();
+            hero.checkWarShout();//sprawdza umiejetnosc moreArmor
+            if (fourthSkill)//jesli czwarty skill: to jest booleam z paramteru który mówi nam czy został uzyty
+                hero.warShout();//czwarty skill, jesli nie został to sprawdza radiobutton'y
             else if (radioButton1.Checked)
                 DMG = hero.swordHit();
             else if (radioButton2.Checked)
                 DMG = hero.powerHit();
         }
-        private void mage_attack(Mage hero, bool fourthSkill)
+        private void mage_attack(Mage hero, bool fourthSkill)//tak samo tutaj oraz w przypadku priest_attack i archer_attack
         {
             if (fourthSkill)
                 hero.regenerate();
@@ -178,21 +175,22 @@ namespace ArenaGameProject
                 DMG = hero.fireBall();
             else if (radioButton3.Checked)
             {
-                DMG = hero.Blizzard();
-                if(whichTeam)
+                DMG = hero.Blizzard();//z tą różnicą, że tutaj Blizzard zadaje obrazenia wszystkim wrogom
+                if(whichTeam)//jesli jest kolej przyjaciol
                 {
                     for(int i = 0; i < EnemyTeam.Count; i++)
                     {
-                        EnemyTeam[i].healthChange(DMG);
+                        EnemyTeam[i].healthChange(DMG);//wrogowie otrzymuja obrazenia
                     }
                 }
-                else
+                else//jesli nie
                 {
                     for (int i = 0; i < AllyTeam.Count; i++)
                     {
-                        AllyTeam[i].healthChange(DMG);
+                        AllyTeam[i].healthChange(DMG);//to przyjaciele otrzymuja
                     }
                 }
+                //nizej jest zestaw metod które zostaną lepiej wyjaśnione niżej
                 uncheck_buttons_and_markers();
                 damage_added_correctly = false;
                 set();
@@ -224,14 +222,14 @@ namespace ArenaGameProject
                 DMG = -hero.heal();
         }
 
-        private void set_marker()
+        private void set_marker()//ustawia marker który pokazuje nam która postać ma swoją turę
         {
-            if(current is Warrior)
+            if(current is Warrior)//najpierw sprawdza kalse
             {
-                if (whichTeam)
-                    AllyTurn1.Visible = true;
+                if (whichTeam)// a potem która druzyna
+                    AllyTurn1.Visible = true;//aktywuje odpowieni znacznik
                 else
-                    EnemyTurn1.Visible = true;
+                    EnemyTurn1.Visible = true;//aktywuje odpowieni znacznik
             }
             if (current is Mage)
             {
@@ -256,9 +254,9 @@ namespace ArenaGameProject
             }
         }
 
-        private void set()
+        private void set()//ustawia paski, zyc, many i nazwy bohaterow
         {
-            foreach(var hero in AllyTeam)
+            foreach(var hero in AllyTeam)//dla kazdego z druzyny przyjaciol
             {
                 if(hero is Warrior)
                 {
@@ -284,7 +282,7 @@ namespace ArenaGameProject
                 }
             }
 
-            foreach (var hero in EnemyTeam)
+            foreach (var hero in EnemyTeam)//i dla kazdego z druzyny wrogow
             {
                 if (hero is Warrior)
                 {
@@ -309,19 +307,20 @@ namespace ArenaGameProject
                     manaBar4.Value = hero.Power;
                 }
             }
-        }
-        private void PictureBox_Click(object sender, EventArgs e)
+        }//jesli w której druzynie nie ma np Archera, to wówczas jego nazwa zostaje None a po kliknieciu na pictureBoxa nic sięnie dzieje
+        //oraz omijana jest jego kolejka
+        private void PictureBox_Click(object sender, EventArgs e)//przy kliknieciu na postać która chce się atakowac/leczyc
         {
-            if (skill_checked)
+            if (skill_checked)//sprawdza czy jakiś skill jest wybrany
             {
                 for (int i = 0; i < AllyTeam.Count; i++)
                 {
-                    if (AllyTeam[i] is Warrior && sender.Equals(Ally_Warrior) && AllyTeam[i] != current)
-                    {
+                    if (AllyTeam[i] is Warrior && sender.Equals(Ally_Warrior) && AllyTeam[i] != current)//sprawdza po kolei
+                    {//czy dana postac z for'a jest Warriorem i czy przeslany object jest pictureBox'em Warriora i czy nie atakuje sie samą postać
                         AllyTeam[i].healthChange(DMG);
-                        damage_added_correctly = true;
+                        damage_added_correctly = true;//zaznacza, ze obrazenia zostaly zadane poprawnie
                     }
-                    else if (AllyTeam[i] is Mage && sender.Equals(Ally_Mage) && AllyTeam[i] != current)
+                    else if (AllyTeam[i] is Mage && sender.Equals(Ally_Mage) && AllyTeam[i] != current)//tak samo jak w poprzenim
                     {
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
@@ -332,13 +331,13 @@ namespace ArenaGameProject
                         damage_added_correctly = true;
                     }
                     else if (AllyTeam[i] is Priest && sender.Equals(Ally_Priest) && (AllyTeam[i] != current || radioButton2.Checked))
-                    {
+                    {//tutaj dodatkowo sprawdza czy chodzi o leczenie, jesli tak to moze uzyc tego na sobie
                         AllyTeam[i].healthChange(DMG);
                         damage_added_correctly = true;
                     }
                 }
 
-                for (int i = 0; i < EnemyTeam.Count; i++)
+                for (int i = 0; i < EnemyTeam.Count; i++)//tak samo sprawdza dla druzyny wrogów
                 {
                     if (EnemyTeam[i] is Warrior && sender.Equals(Enemy_Warrior) && EnemyTeam[i] != current)
                     {
@@ -361,33 +360,33 @@ namespace ArenaGameProject
                         damage_added_correctly = true;
                     }
                 }
-                if(damage_added_correctly)
-                {
-                    uncheck_buttons_and_markers();
-                    damage_added_correctly = false;
-                    set();
-                    check_dead();
-                    if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)
-                        Close();
+                if(damage_added_correctly)//jesli udalo sie zadac obrazenia, nie udalo by się gdyby
+                {//np dany pictureBox nie "istniał" czyli nie został wybrany Archer, ale kliknięto na PictureBox Archer'a 
+                    uncheck_buttons_and_markers();//odznacza radiobuttony oraz znacznik, który pokazuje czyja się tura
+                    damage_added_correctly = false;//zmienia poprawnie zadano obrazenia na false
+                    set();//ustawia pasi zyc i many
+                    check_dead();// sprawdza czy ktos nie umarł i zaraz czy nie koniec gry
+                    if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)//to zostanie wyjasnione nizej
+                        Close();//zamyka sie Form
                     else
                     {
-                        next_turn();
-                        skill_check();
-                        set_marker();
+                        next_turn();//przechodzi do nastepnej tury
+                        skill_check();//sprawdza skille i pokazje je na ekranie dla kolejnej postaci
+                        set_marker();//ustawia znacznik na kolejnej psotaci
                     }
                 }
             }
             
         }
-        private void uncheck_buttons_and_markers()
+        private void uncheck_buttons_and_markers()//odznaczanie
         {
             for(int i = 0; i < Radio_Skills.Count; i++)
             {
-                Radio_Skills[i].Checked = false;
+                Radio_Skills[i].Checked = false;//kazdy radiobutton jest deaktywowany
             }
-            skill_checked = false;
+            skill_checked = false;//zaznacza ze skill nie jest zaznaczony
 
-            AllyTurn1.Visible = false;
+            AllyTurn1.Visible = false;//odznacza znaczniki dla kazdej postaci
             AllyTurn2.Visible = false;
             AllyTurn3.Visible = false;
             AllyTurn4.Visible = false;
@@ -397,53 +396,53 @@ namespace ArenaGameProject
             EnemyTurn3.Visible = false;
             EnemyTurn4.Visible = false;
         }
-        private void next_turn()
+        private void next_turn()//nastepna tura
         {
-            if(whichTeam)
+            if (whichTeam)//jesli kolej przyjaciol
             {
-                currentAlly++;
-                if(currentAlly > AllyTeam.Count - 1)
-                    currentAlly = 0;
-                whichTeam = false;
+                currentAlly++;//zwiekszamy indeks obecnego przyjaciela
+                if (currentAlly > AllyTeam.Count - 1)// jesli indeks doszedl do konca listy
+                    currentAlly = 0;//ustawiamy na zero
+                whichTeam = false;//zmieniamy druzyne na wrogow
             }
-            else
+            else//jesli nie kolej przyjaciol
             {
-                currentEnemy++;
-                if (currentEnemy > EnemyTeam.Count - 1)
-                    currentEnemy = 0;
-                whichTeam = true;
+                currentEnemy++;//zwiekszamy indeks obecnego wroga
+                if (currentEnemy > EnemyTeam.Count - 1)//jesli indeks doszedl do konca lsity
+                    currentEnemy = 0;//ustawiamy na zero
+                whichTeam = true;//zmieniamy druzyne na przyajciół
             }
             
-            if (whichTeam)
-                current = AllyTeam[currentAlly];
+            if (whichTeam)//w zaleznosci od obecnie grająćej druzyny
+                current = AllyTeam[currentAlly];//jest ustawiany obecny bohater
             else
                 current = EnemyTeam[currentEnemy];
             
-            if (current._isAI)
-                bot_Attack();
+            if (current._isAI)//jesli obecny bohater jest komputere
+                bot_Attack();//komputer atakuje
         }
 
-        private void bot_Attack()
+        private void bot_Attack()//atak komputera
         {
-            if(whichTeam)
+            if(whichTeam)//jesli druzyna przyajciol
             {
-                if(AllyTeam[currentAlly] is Warrior)
+                if(AllyTeam[currentAlly] is Warrior)//jesli warrior
                 {
-                    AI_Attack.Attack((Warrior)current, EnemyTeam);
-                    if(AI_Attack.Buff)
+                    AI_Attack.Attack((Warrior)current, EnemyTeam);//metoda losujaca/wybierajaca
+                    if(AI_Attack.Buff)//jesli nie byl to atak
                     {
-                        Warrior tmp = (Warrior)AllyTeam[currentAlly];
-                        tmp.warShout();
-                        AllyTeam[currentAlly] = tmp;
-                        MessageBox.Show(current._Name + " used War Shout.");
+                        Warrior tmp = (Warrior)AllyTeam[currentAlly];//tutaj tak troche
+                        tmp.warShout();//byle jak, uzywanie skilla,
+                        AllyTeam[currentAlly] = tmp;//oraz nowe przypisywanie do obecnie grajacej psotaci
+                        MessageBox.Show(current._Name + " used War Shout.");//wiadomosc pokazujaca co sie stalo
                     }
-                    else
+                    else//jesli to byl atack
                     {
-                        EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
+                        EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);//odejmuje wybranemu wrogowi obliczone obrazenia
                         MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + AI_Attack.DMG + " damage.");
-                    }
+                    }//wiadomosc pokazujaca co sie stalo
                 }
-                if (AllyTeam[currentAlly] is Mage)
+                if (AllyTeam[currentAlly] is Mage)//reszta na tej samej zasadzie
                 {
                     AI_Attack.Attack((Mage)current, EnemyTeam);
                     if(AI_Attack.Buff)
@@ -460,8 +459,8 @@ namespace ArenaGameProject
                             EnemyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
                             MessageBox.Show(current._Name + " hit " + EnemyTeam[AI_Attack.Enemy]._Name + " for " + DMG + " damage.");
                         }
-                        else
-                        {
+                        else//z tym wyjatkiem, ze jesli indeks wroga jest -1 to jest uzywany blizzard
+                        {//na wszystkich wrogow
                             for(int i =0; i<EnemyTeam.Count;i++)
                             {
                                 EnemyTeam[i].healthChange(AI_Attack.DMG);
@@ -482,12 +481,12 @@ namespace ArenaGameProject
                     if(AI_Attack.Buff)
                     {
                         if(AI_Attack.Enemy == -1)
-                        {
+                        {//tak samo jesli indeks jest na -1 to leczy samego sieibe 
                             AllyTeam[currentAlly].healthChange(AI_Attack.DMG);
                             MessageBox.Show(current._Name + " healed himself for "+(-AI_Attack.DMG));
                         }
-                        else
-                        {
+                        else//jesli nie jest na -1 ale nie jest to rowniez atak to leczy
+                        {//przyajciela o wskazanym indeksie
                             AllyTeam[AI_Attack.Enemy].healthChange(AI_Attack.DMG);
                             MessageBox.Show(current._Name+" healed "+AllyTeam[AI_Attack.Enemy]._Name+" for "+(-AI_Attack.DMG));
                               
@@ -500,7 +499,7 @@ namespace ArenaGameProject
                     }
                 }
             }
-            else
+            else//tak samo dal druzyny wrogow
             {
                 if(EnemyTeam[currentAlly] is Warrior)
                 {
@@ -576,35 +575,35 @@ namespace ArenaGameProject
                     }
                 }
             }
-            uncheck_buttons_and_markers();
+            uncheck_buttons_and_markers();//i tutaj tak samo, odznaczanie
             damage_added_correctly = false;
-            set();
-            check_dead();
-            if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)
+            set();//ustawianie paskow zyc i many
+            check_dead();//sprawdza czy ktos umarl
+            if (ArenaGameProject.Menu.AllyWin | ArenaGameProject.Menu.EnemyWin)//sprawdza czy czy ktos wygrał czy nie
                 Close();
-            else
+            else//poniewaz musi dokonczyc metode zamin zamknie Form'a, dlatego jest tu else
             {
-                next_turn();
-                skill_check();
-                set_marker();
+                next_turn();//nastepna tura
+                skill_check();//ustawia skille,
+                set_marker();//ustawia znacznik
             }
         }
 
-        private void check_dead()
+        private void check_dead()//sprawdza czy ktos umarl
         {
-            ArenaGameProject.Menu.AllyWin = true;
+            ArenaGameProject.Menu.AllyWin = true;//ustawia wygrane na true
             ArenaGameProject.Menu.EnemyWin = true;
             for(int i = 0; i < AllyTeam.Count; i++)
             {
-                if (AllyTeam[i].Health <= 0)
+                if (AllyTeam[i].Health <= 0)//jesli ktos z przyjaciol ma zycia mniejsze od 1 
                 {
-                    AllyTeam.Remove(AllyTeam[i]);
-                    i--;
+                    AllyTeam.Remove(AllyTeam[i]);//to wyrzuca go z listy
+                    i--;//i cofa sie o jeden indeks przy sprawdzaniu
                 }
                 else
-                    ArenaGameProject.Menu.EnemyWin = false;
+                    ArenaGameProject.Menu.EnemyWin = false;//jesli ktos zyje to ustawia, zw wrogowie wygrali na false
             }
-            for (int i = 0; i < EnemyTeam.Count; i++)
+            for (int i = 0; i < EnemyTeam.Count; i++)//tak samo dal wrogow
             {
                 if (EnemyTeam[i].Health <= 0)
                 {
@@ -616,11 +615,11 @@ namespace ArenaGameProject
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)//czwart skill, czyli nie radiobutton a zwykły
         {
-            if (whichTeam)
+            if (whichTeam)//w zaleznosci od druzyny
             {
-                if (AllyTeam[currentAlly] is Warrior)
+                if (AllyTeam[currentAlly] is Warrior)//wlacza odpowiednia metode
                     warrior_attack((Warrior)AllyTeam[currentAlly], true);
                 if (AllyTeam[currentAlly] is Mage)
                     mage_attack((Mage)AllyTeam[currentAlly], true);
@@ -636,8 +635,8 @@ namespace ArenaGameProject
                 if (EnemyTeam[currentEnemy] is Priest)
                     priest_attack((Priest)EnemyTeam[currentEnemy], true);
             }
-            uncheck_buttons_and_markers();
-            set();
+            uncheck_buttons_and_markers();//w ten sam sposob sprawdza paski i odznacza
+            set();//postacie, ponieważ czwarty skill również końcy turę
             next_turn();
             skill_check();
             set_marker();

@@ -10,7 +10,7 @@ namespace ArenaGameProject
     {
         private int maxPower;
 
-        public Priest(string name, bool isAI, bool isAlly)
+        public Priest(string name, bool isAI, bool isAlly)//konstruktor
         {
             this.name = name;
             power = 25;
@@ -23,19 +23,19 @@ namespace ArenaGameProject
 
         public int holyBolt()
         {
-            power -= 1;
+            power -= 1;//przy uzyciu umiejętnosci postać traci manę
             return Convert.ToInt32(0.75 * power * tacticPoints);
         }
 
         public int heal()
         {
-            power -= 1;
+            power -= 1;//przy uzyciu umiejętnosci postać traci manę
             return Convert.ToInt32(1.2 * power * tacticPoints);
         }
 
         public void regenerate()
         {
-            power = maxPower;
+            power = maxPower;//regeneracja many
         }
     }
 }

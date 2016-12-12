@@ -19,7 +19,7 @@ namespace ArenaGameProject
             InitializeComponent();
         }
 
-        private void EndFight_Load(object sender, EventArgs e)
+        private void EndFight_Load(object sender, EventArgs e)//ustawia odpowiedni obraz do wygranej lub przegranej
         {
             if (Win)
                 AllyWon.Visible = true;
@@ -27,14 +27,14 @@ namespace ArenaGameProject
                 EnemyWon.Visible = true;
         }
 
-        private void Won_Click(object sender, EventArgs e)
+        private void Won_Click(object sender, EventArgs e)//po kliknieciu zamyka Form'a
         {
             Close();
         }
 
-        private void EndFight_Shown(object sender, EventArgs e)
+        private void EndFight_Shown(object sender, EventArgs e)//po pokazaniu obrazu
         {
-            if (Win)
+            if (Win)//wyswietla odpowiedni komunikat
                 MessageBox.Show("The dark forces have been defeated. This fight wasn't easy, you can be proud.");
             else
                 MessageBox.Show("The dark forces have won this battle. But the war is still not over!");

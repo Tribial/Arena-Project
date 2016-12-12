@@ -9,9 +9,9 @@ namespace ArenaGameProject
 {
     public class Mage : Hero
     {
-        private int maxPower;
+        private int maxPower; //maksymana mana
 
-        public Mage(string name, bool isAI, bool isAlly)
+        public Mage(string name, bool isAI, bool isAlly)//konstruktor
         {
             this.name = name;
             power = 25;
@@ -24,25 +24,25 @@ namespace ArenaGameProject
 
         public int fireBall()
         {
-            power -= 3;
+            power -= 3;//przy uzyciu umiejętnosci postać traci manę
             return Convert.ToInt32((power + 3) * 0.75 * tacticPoints * 0.9);
         }
 
         public int Blizzard()
         {
-            power -= 5;
+            power -= 5;//przy uzyciu umiejętnosci postać traci manę
             return Convert.ToInt32((power + 5) * 0.6 * tacticPoints * 0.9);
         }
 
         public int lightningBolt()
         {
-            power -= 1;
+            power -= 1;//przy uzyciu umiejętnosci postać traci manę
             return Convert.ToInt32((power + 1) * 0.5 * tacticPoints * 0.9);
         }
 
         public void regenerate()
         {
-            power = maxPower;
+            power = maxPower;//regeneracja many
         }
     }
 }

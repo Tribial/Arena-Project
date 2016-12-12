@@ -12,7 +12,7 @@ namespace ArenaGameProject
 {
     public partial class Menu : Form
     {
-        public static bool AllyWin;
+        public static bool AllyWin;//pole bool które mówi kto wygrał
         public static bool EnemyWin;
 
         public Menu()
@@ -22,10 +22,10 @@ namespace ArenaGameProject
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//wyjscie z gry
         }
 
-        private void FirtGame_Click(object sender, EventArgs e)
+        private void FirtGame_Click(object sender, EventArgs e)//uruchamia grę 1 na 1
         {
             CharacterSelect ch = new CharacterSelect(1);
             this.Hide();
@@ -34,7 +34,7 @@ namespace ArenaGameProject
             checkWin();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)//uruchamia grę 2 na 2
         {
             CharacterSelect ch = new CharacterSelect(2);
             this.Hide();
@@ -43,7 +43,7 @@ namespace ArenaGameProject
             checkWin();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)//uruchamia grę 4 na 4
         {
             CharacterSelect ch = new CharacterSelect(4);
             this.Hide();
@@ -52,7 +52,7 @@ namespace ArenaGameProject
             checkWin();
         }
 
-        private void checkWin()
+        private void checkWin()//sprawdza kto wygral i wyswietla odpowiedniego Form'a
         {
             if (AllyWin)
             {

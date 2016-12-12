@@ -12,103 +12,102 @@ namespace ArenaGameProject
 {
     public partial class CharacterSelect : Form
     {
-        private List<Hero> AllyTeam;
+        private List<Hero> AllyTeam;//Listy druzyn
         private List<Hero> EnemyTeam;
 
-        private static bool whichTeam;
-        private static int teamSize;
-        private static int currentTeamSize;
-        private static bool[] isTaken;
+        private static bool whichTeam;//boolean który definiuje dla ktorej druzyny wybieramy
+        private static int teamSize;//maksymalny rozmiar druzyny
+        private static int currentTeamSize;//obecny rozmiar druzyny
+        
 
-        public CharacterSelect(int size)
+        public CharacterSelect(int size)//konstruktor w ktorym przekazujemy rozmiar druzyn
         {
             AllyTeam = new List<Hero>();
             EnemyTeam = new List<Hero>();
             teamSize = size;
             currentTeamSize = 0;
-            isTaken = new bool[4];
             InitializeComponent();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//wychodzi z wyboru bohatera
         }
 
-        private void Warrior_MouseEnter(object sender, EventArgs e)
+        private void Warrior_MouseEnter(object sender, EventArgs e)//przy najechaniu myszka pokazuje sie obrazek
         {
             warrior_box2.Visible = true;
         }
 
-        private void Warrior_MouseLeave(object sender, EventArgs e)
+        private void Warrior_MouseLeave(object sender, EventArgs e)//przy zjechaniu myszki
         {
             if (Warrior.Enabled == true)
-                warrior_box2.Visible = false;
+                warrior_box2.Visible = false;//jesli nie jest zanaczony to znika obrazek
             else
-                warrior_box2.Visible = true;
+                warrior_box2.Visible = true;//jesli jest zaznaczony to zostaje obrazek
         }
 
-        private void Mage_MouseEnter(object sender, EventArgs e)
+        private void Mage_MouseEnter(object sender, EventArgs e)//przy najechaniu myszka pokazuje sie obrazek
         {
             mage_box2.Visible = true;
         }
 
-        private void Mage_MouseLeave(object sender, EventArgs e)
+        private void Mage_MouseLeave(object sender, EventArgs e)//przy zjechaniu myszki
         {
             if (Mage.Enabled == true)
-                mage_box2.Visible = false;
+                mage_box2.Visible = false;//jesli nie jest zanaczony to znika obrazek
             else
-                mage_box2.Visible = true;
+                mage_box2.Visible = true;//jesli jest zaznaczony to zostaje obrazek
         }
 
-        private void Archer_MouseEnter(object sender, EventArgs e)
+        private void Archer_MouseEnter(object sender, EventArgs e)//przy najechaniu myszka pokazuje sie obrazek
         {
             archer_box2.Visible = true;
         }
 
-        private void Archer_MouseLeave(object sender, EventArgs e)
+        private void Archer_MouseLeave(object sender, EventArgs e)//przy zjechaniu myszki
         {
             if (Archer.Enabled == true)
-                archer_box2.Visible = false;
+                archer_box2.Visible = false;//jesli nie jest zanaczony to znika obrazek
             else
-                archer_box2.Visible = true;
+                archer_box2.Visible = true;//jesli jest zaznaczony to zostaje obrazek
         }
 
-        private void Priest_MouseEnter(object sender, EventArgs e)
+        private void Priest_MouseEnter(object sender, EventArgs e)//przy najechaniu myszka pokazuje sie obrazek
         {
             priest_box2.Visible = true;
         }
 
-        private void Priest_MouseLeave(object sender, EventArgs e)
+        private void Priest_MouseLeave(object sender, EventArgs e)//przy zjechaniu myszki
         {
             if (Priest.Enabled == true)
-                priest_box2.Visible = false;
+                priest_box2.Visible = false;//jesli nie jest zanaczony to znika obrazek
             else
-                priest_box2.Visible = true;
+                priest_box2.Visible = true;//jesli jest zaznaczony to zostaje obrazek
         }
 
-        private void CharacterSelect_Load(object sender, EventArgs e)
+        private void CharacterSelect_Load(object sender, EventArgs e)//przy wczytaniu Form'a
         {
             checkState();
         }
 
-        private void Warrior_Click(object sender, EventArgs e)
+        private void Warrior_Click(object sender, EventArgs e)//kliekniecie na ikonke postaci
         {
-            if (ch_name.Text != "" && ch_name.Text != "Name")
+            if (ch_name.Text != "" && ch_name.Text != "Name")//jesli nazwa zostala zmieniona
             {
-                this.UseWaitCursor = true;
+                this.UseWaitCursor = true;//wlacza kursor wczytywania
                 if (whichTeam)
-                    AllyTeam.Add(new Warrior(ch_name.Text, AI.Checked, true));
+                    AllyTeam.Add(new Warrior(ch_name.Text, AI.Checked, true));//dodaje do listy nowy obiekt
                 else
-                    EnemyTeam.Add(new Warrior(ch_name.Text, AI.Checked, false));
-                Warrior.Enabled = false;
-                currentTeamSize++;
-                checkState();
-                this.UseWaitCursor = false;
+                    EnemyTeam.Add(new Warrior(ch_name.Text, AI.Checked, false));//do odpowiedniej druzny w zaleznosci od whichTeam
+                Warrior.Enabled = false;//wylacza przycisk 
+                currentTeamSize++;//zwieksza obecny rozmiar druzyny
+                checkState();//sprawdza stan
+                this.UseWaitCursor = false;//wylacza kursor wczytywania
             }
-            else
+            else//jesli nie zostala nazwa zmieniona, pokazuje nizej widoczny komunikat
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
-        }
+        }//to samo jest dla pozostalych Mage_Click, Archer_Click i Priest_Click
 
         private void Mage_Click(object sender, EventArgs e)
         {
@@ -164,31 +163,31 @@ namespace ArenaGameProject
                 MessageBox.Show("You have to set a name! And don't forget to choose other options below.");
         }
 
-        private void checkState()
+        private void checkState()//sprawdza
         {
-            if (currentTeamSize < teamSize)
+            if (currentTeamSize < teamSize)//dla ktorej druzyny wybierasz
             {
                 whichTeam = true;
                 WhichTeam.Text = "You are chosing for team: 'The Brothers of Vethelot'";
             }
-            if (currentTeamSize == teamSize)
+            if (currentTeamSize == teamSize)//resetuje pictureBoxy jest wybralo sie juz wystarczająco postaci
                 reset();
-            if (currentTeamSize >= teamSize)
+            if (currentTeamSize >= teamSize)//dla ktorej druzyny wybierasz
             {
                 whichTeam = false;
                 WhichTeam.Text = "You are chosing for team: 'The Conquerors Order'";
             }
-            if (currentTeamSize == 2 * teamSize)
+            if (currentTeamSize == 2 * teamSize)//jesli juz dla obu druzyn zostało wybrane
             {
                 Arena fight = new Arena(AllyTeam, EnemyTeam);
-                fight.ShowDialog();
+                fight.ShowDialog();//wlacza sie arena i zaczyna walka
                 this.Close();
             }
 
-            ch_name.Text = "Name";
+            ch_name.Text = "Name";//ustawia nazwe na domyslna "name"
         }
 
-        private void reset()
+        private void reset()//resetuje picturyBoxy
         {
             Priest.Enabled = true;
             priest_box2.Visible = false;
@@ -200,7 +199,7 @@ namespace ArenaGameProject
             archer_box2.Visible = false;
         }
 
-        private void random_name_Click(object sender, EventArgs e)
+        private void random_name_Click(object sender, EventArgs e)//ustawia losowa nazwa dla postaci
         {
             string[] names = { "Solhar", "Traanun", "Vepteurun", "Fleeran", "Perduhr", "Leyrah", "Pauldon", "Carwald", "Soncuth"};
             Random rnd = new Random();
